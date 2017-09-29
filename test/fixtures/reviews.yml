@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyString
+  durability: 1
+  comfortability: 1
+  ventilation: 1
+  money_worthy: 1
+  vote_count: 1
+  shoe: one
+  user: one
+
+two:
+  content: MyString
+  durability: 1
+  comfortability: 1
+  ventilation: 1
+  money_worthy: 1
+  vote_count: 1
+  shoe: two
+  user: two
