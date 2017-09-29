@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  size: MyString
+  foot_length: 1.5
+  foot_width: 1.5
+  shoe: one
+
+two:
+  size: MyString
+  foot_length: 1.5
+  foot_width: 1.5
+  shoe: two
