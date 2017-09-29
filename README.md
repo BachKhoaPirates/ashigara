@@ -1,24 +1,39 @@
-# README
+# 足柄  (あしがら) - Ashigara [![Join the chat at https://gitter.im/bkpirates-ashigara/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bkpirates-ashigara/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/428bb66fcded4cc5959de79552d60120)](https://www.codacy.com/app/truongnmt/ashigara?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BachKhoaPirates/ashigara&amp;utm_campaign=Badge_Grade)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+By [BachKhoaPirates.](https://github.com/BachKhoaPirates)
 
-Things you may want to cover:
+Ashigara is a website for review shoes. Allow you to:
 
-* Ruby version
+* Get shoe information
 
-* System dependencies
+* Get shoe review from user
 
-* Configuration
+* Get **exactly** shoe size base on foot size
 
-* Database creation
+* Get list of shops where sell a specific shoe
 
-* Database initialization
+# Getting started
 
-* How to run the test suite
+Install [Rails (also Ruby and PostgreSQL)](https://gorails.com/setup/ubuntu/17.04)
 
-* Services (job queues, cache servers, search engines, etc.)
+Then run:
+`$ bundle install`
+`$ rails db:create`
+`$ rails db:migrate`
 
-* Deployment instructions
+# How to contribute
+* Fork the project.
 
-* ...
+* Run bundle
+
+* Run bundle exec rake
+
+* Make your feature addition or bug fix.
+
+* Add tests for it. This is important so I don't break it in a future version unintentionally.
+
+* Run bundle exec rake (No, REALLY :))
+
+* Commit, do not mess with rakefile, version, or history. (if you want to have your own version, that is fine but bump version in a commit by itself in another branch so I can ignore when I pull)
+
+* Send me a pull request. Bonus points for topic branches.
