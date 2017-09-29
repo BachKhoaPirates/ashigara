@@ -1,24 +1,26 @@
-# README
+# 足柄  (あしがら) - Ashigara
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+By https://github.com/BachKhoaPirates!
+[BachKhoaPirates](https://github.com/BachKhoaPirates)
 
-Things you may want to cover:
+Ashigara is a website for review shoes. Allow you to:
 
-* Ruby version
+* Get shoe information
 
-* System dependencies
+* Get shoe review from user
 
-* Configuration
+* Get **exactly** shoe size base on foot size
 
-* Database creation
+* Get list of shops where sell a specific shoe
 
-* Database initialization
+# Getting started
 
-* How to run the test suite
+Install https://gorails.com/setup/ubuntu/17.04!
+[Rails (also Ruby and PostgreSQL)](https://gorails.com/setup/ubuntu/17.04)
 
-* Services (job queues, cache servers, search engines, etc.)
+Then run:
+`$ bundle install`
+`$ rails db:create`
+`$ rails db:migrate`
 
-* Deployment instructions
-
-* ...
+# How to contribute
