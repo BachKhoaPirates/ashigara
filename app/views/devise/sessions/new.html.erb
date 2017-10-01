@@ -1,20 +1,21 @@
 <div class="container login">
   <div class="row">
-    <div class="col-md-4 col-md-offset-4">
+    <div class="col-md-2 col-md-offset-9">
       <div class="panel panel-default">
         <div class="panel-body">
-          <h2>Log in</h2>
+          <h2>Signin</h2>
           <hr class="colorgraph">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="field">
               <%= f.email_field :email, autofocus: true, class: "form-control input-lg", placeholder: "Email Address" %>
             </div>
+            <br>
             <div class="field">
               <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg", placeholder: "Password" %>
             </div>
             <hr class="colorgraph">
             <div class="row">
-              <div class="col-md-3">
+              <div class="col-md-6">
                 <div class="btn btn-link">
                   <% if devise_mapping.rememberable? -%>
                     <div class="field">
@@ -24,8 +25,8 @@
                   <% end -%>
                 </div>
               </div>
-              <div class="col-md-3 col-md-offset-3 pull-right">
-                <%= f.submit "Log in", class: "btn btn-lg btn-success btn-block" %>
+              <div class="col-md-6">
+                <%= f.submit "Submit", class: "btn btn-lg btn-success btn-block" %>
               </div>
             </div>
           <% end %>
