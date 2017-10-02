@@ -6,12 +6,12 @@ class User < ApplicationRecord
 
 
   def self.from_omniauth(auth)
-    user = where(email: auth.info.email).first_or_create do |user|
-      user.password = Devise.friendly_token[0,20]
-      user.email = auth.info.email
-      # user.remote_avatar_url = auth.info.image.gsub('http://','https://')
-      user.skip_confirmation!
-      user.save!
+    user = where(email: auth.info.email).first_or_create do |u|
+      u.password = Devise.friendly_token[0,20]
+      u.email = auth.info.email
+      # u.remote_avatar_url = auth.info.image.gsub('http://','https://')
+      u.skip_confirmation!
+      u.save!
     end
 
     # if (!user.avatar.url)
