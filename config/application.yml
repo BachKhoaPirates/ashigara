@@ -13,3 +13,6 @@
 mailgun_domain: "sandbox9be15ff104ff4b80b4db15ca868c2bb5.mailgun.org"
 mailgun_user_name: "postmaster@sandbox9be15ff104ff4b80b4db15ca868c2bb5.mailgun.org"
 mailgun_password: "810638453667ab7eb3e2e8df2099d524"
+
+fb_app_id: '1405294702851940'
+fb_app_secret: 'e79bfa0240263192d2357c968c1009c2'
