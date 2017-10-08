@@ -1,0 +1,13 @@
+<h1>show.html.erb</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+<br>
+<br>
+<p>Username: <%= @user.username %></p><br>
+<p>Email: <%= @user.email %></p><br>
+<p>Dob: <%= @user.dob %></p><br>
+<p>Foot length: <%= @user.foot_length %> (cm)</p><br>
+<p>Foot width: <%= @user.foot_width %> (cm)</p><br>
+
+<%= @shoe_bookmarks.each do |bookmark| %>
+  <p>Shoes name: <%= bookmark.shoe.name %></p>
+<% end %>

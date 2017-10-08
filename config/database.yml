@@ -27,8 +27,8 @@ development:
   encoding: unicode
   database: ashigara_development
   pool: 5
-  username: ashigara
-  password: ashigara
+  # username: ashigara
+  # password: ashigara
 
 test:
   <<: *default
