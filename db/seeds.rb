@@ -4,38 +4,46 @@ Sex.create! name: "Female"
 Sex.create! name: "Unknown"
 
 p "seeding 100 users"
-User.create! email: "a@a.com",
+user = User.new email: "a@a.com",
   password: "123123",
   username: Faker::Name.name,
   dob: Faker::Date.backward,
   sexes_id: rand(1..3),
   foot_length: rand(20..30),
   foot_width: rand(10..15)
+user.skip_confirmation!
+user.save!
 
-User.create! email: "b@b.com",
+user = User.new email: "b@b.com",
   password: "123123",
   username: Faker::Name.name,
   dob: Faker::Date.backward,
   sexes_id: rand(1..3),
   foot_length: rand(20..30),
   foot_width: rand(10..15)
+user.skip_confirmation!
+user.save!
 
-User.create! email: "c@cv.com",
+user = User.new email: "c@cv.com",
   password: "123123",
   username: Faker::Name.name,
   dob: Faker::Date.backward,
   sexes_id: rand(1..3),
   foot_length: rand(20..30),
   foot_width: rand(10..15)
+user.skip_confirmation!
+user.save!
 
 97.times do
-  User.create! email: Faker::Internet.email,
+  user = User.new email: Faker::Internet.email,
     password: "123123",
     username: Faker::Name.name,
     dob: Faker::Date.backward,
     sexes_id: rand(1..3),
     foot_length: rand(20..30),
     foot_width: rand(10..15)
+  user.skip_confirmation!
+  user.save!
 end
 
 p "seeding categories"
@@ -90,8 +98,8 @@ p "seeding shoes"
     water_proof: [true, false].sample,
     money_worthy: rand(1..5),
     released_date: Faker::Date.backward,
-    categories_id: rand(1..17),
-    brands_id: rand(1..21)
+    category_id: rand(1..17),
+    brand_id: rand(1..21)
 end
 
 p "seeding sizes"
