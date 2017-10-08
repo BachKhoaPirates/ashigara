@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929093706) do
+ActiveRecord::Schema.define(version: 20171007150616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,12 +91,12 @@ ActiveRecord::Schema.define(version: 20170929093706) do
   end
 
   create_table "sizes", force: :cascade do |t|
-    t.string "size"
     t.float "foot_length"
     t.float "foot_width"
     t.bigint "shoe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "size"
     t.index ["shoe_id"], name: "index_sizes_on_shoe_id"
   end
 

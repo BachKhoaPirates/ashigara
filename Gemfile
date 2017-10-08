@@ -5,7 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bootstrap-sass', '~>3.3.6'
 gem 'coffee-rails', '~> 4.2'
+gem 'devise'
+gem 'faker'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
@@ -13,8 +16,6 @@ gem 'rails', '~> 5.1.4'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
-gem 'devise'
-gem 'bootstrap-sass', '~>3.3.6'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -32,3 +33,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "figaro"
+
+gem 'omniauth'
+gem 'omniauth-facebook', '~> 4.0.0'
+gem 'omniauth-google-oauth2', '~> 0.4.1'

@@ -10,6 +10,11 @@
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
-mailgun_domain: "sandbox9be15ff104ff4b80b4db15ca868c2bb5.mailgun.org"
-mailgun_user_name: "postmaster@sandbox9be15ff104ff4b80b4db15ca868c2bb5.mailgun.org"
-mailgun_password: "810638453667ab7eb3e2e8df2099d524"
+mailgun_domain: "sandboxabbea9300de74f83816ba83633a7d257.mailgun.org"
+mailgun_user_name: "postmaster@sandboxabbea9300de74f83816ba83633a7d257.mailgun.org"
+mailgun_password: "2fe379977cfa590208c340f067a614d5"
+
+fb_app_id: '1405294702851940'
+fb_app_secret: 'e79bfa0240263192d2357c968c1009c2'
+gg_app_id: '191240187528-jqn6p07355q3cer91u6rm85a22612pvr.apps.googleusercontent.com'
+gg_app_secret: 'C_vZ8nyNj2H6zpTT0dhhbvyS'
