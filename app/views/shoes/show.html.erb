@@ -1,0 +1,20 @@
+<% if @shoe.present? %>
+  Name: <%= @shoe.name %>
+  <br>
+  Durability: <%= @shoe.durability %>
+  <br>
+  Comfortability: <%= @shoe.comfortability %>
+  <br>
+  Ventilation: <%= @shoe.ventilation %>
+  <br>
+  Overall: <%= @shoe.overall %>
+  <br>
+  Water_proof: <%= @shoe.water_proof %>
+  <br>
+  Money_worthy: <%= @shoe.money_worthy %>
+  <br>
+  Category Name: <%= @shoe.category.name %>
+  <br>
+  Brand Name: <%= @shoe.brand.name %>
+  <br>
+<% end %>
