@@ -75,12 +75,12 @@ ActiveRecord::Schema.define(version: 20171007150616) do
     t.boolean "water_proof"
     t.float "money_worthy"
     t.date "released_date"
-    t.bigint "categories_id"
-    t.bigint "brands_id"
+    t.bigint "category_id"
+    t.bigint "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["brands_id"], name: "index_shoes_on_brands_id"
-    t.index ["categories_id"], name: "index_shoes_on_categories_id"
+    t.index ["brand_id"], name: "index_shoes_on_brand_id"
+    t.index ["category_id"], name: "index_shoes_on_category_id"
   end
 
   create_table "shops", force: :cascade do |t|
@@ -133,8 +133,8 @@ ActiveRecord::Schema.define(version: 20171007150616) do
   add_foreign_key "reviews", "users"
   add_foreign_key "shoe_shops", "shoes"
   add_foreign_key "shoe_shops", "shops"
-  add_foreign_key "shoes", "brands", column: "brands_id"
-  add_foreign_key "shoes", "categories", column: "categories_id"
+  add_foreign_key "shoes", "brands"
+  add_foreign_key "shoes", "categories"
   add_foreign_key "sizes", "shoes"
   add_foreign_key "users", "sexes", column: "sexes_id"
 end

@@ -9,8 +9,8 @@ class CreateShoes < ActiveRecord::Migration[5.1]
       t.boolean :water_proof
       t.float :money_worthy
       t.date :released_date
-      t.references :categories, index: true, foreign_key: true
-      t.references :brands, index: true, foreign_key: true
+      t.references :category, index: true, foreign_key: true
+      t.references :brand, index: true, foreign_key: true
 
       t.timestamps
     end
