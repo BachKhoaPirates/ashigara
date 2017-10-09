@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @shoe_bookmarks = @user.bookmarks.includes(:shoe)
+    @user_reviews = @user.reviews
   end
 
   def update

@@ -41,6 +41,18 @@
   <p>Shoe image: <%= link_to bookmark.shoe.name, shoe_path %></p>
   <p>Shoe brand: <%= bookmark.shoe.brand.name %></p>
   <p>Shoe category: <%= bookmark.shoe.category.name %></p>
-  <hr>
+  <br>
+<% end %>
+
+<% @user_reviews.each do |review| %>
+  <p>Review about shoe name: <%= link_to review.shoe.name, shoe_path(review.shoe_id) %></p>
+  <!-- <p>Review content: <%= review.content %></p> -->
+  <%# if @user.current_user? current_user %>
+    <%#= link_to review, method: :delete, data: {confirm: "Are you sure?"} do %>
+      <!-- <i class="fa fa-trash-o fa-lg"></i> -->
+    <%# end %>
+  <%# end %>
+  <div><%= review.content %></div>
+  <div><%= review.created_at.strftime("%v") %></div>
   <br>
 <% end %>
