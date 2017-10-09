@@ -6,6 +6,6 @@ Rails.application.routes.draw do
           path_names: {sign_in: "login", sign_out: "logout", edit: "profile"},
           :controllers => { :omniauth_callbacks => "callbacks" }
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :update]
   resources :shoes, only: [:show, :index]
 end

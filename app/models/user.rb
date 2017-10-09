@@ -20,4 +20,8 @@ class User < ApplicationRecord
     # end
     return user
   end
+
+  def current_user? user
+    self == user
+  end
 end
