@@ -145,3 +145,42 @@ p "seeding reviews"
       vote_count: rand(-3..30)
   end
 end
+
+shoe_images = [
+  "https://static.pexels.com/photos/19090/pexels-photo.jpg",
+  "https://static.pexels.com/photos/345415/pexels-photo-345415.jpeg",
+  "https://static.pexels.com/photos/267320/pexels-photo-267320.jpeg",
+  "https://static.pexels.com/photos/267202/pexels-photo-267202.jpeg",
+  "https://static.pexels.com/photos/298864/pexels-photo-298864.jpeg",
+  "https://static.pexels.com/photos/51397/legs-window-car-dirt-road-51397.jpeg",
+  "https://static.pexels.com/photos/17465/pexels-photo.jpg",
+  "https://static.pexels.com/photos/292999/pexels-photo-292999.jpeg",
+  "https://static.pexels.com/photos/298863/pexels-photo-298863.jpeg",
+  "https://static.pexels.com/photos/234792/pexels-photo-234792.jpeg",
+  "https://static.pexels.com/photos/293406/pexels-photo-293406.jpeg",
+  "https://static.pexels.com/photos/267294/pexels-photo-267294.jpeg",
+  "https://static.pexels.com/photos/404168/pexels-photo-404168.jpeg",
+  "https://static.pexels.com/photos/267313/pexels-photo-267313.jpeg",
+  "https://static.pexels.com/photos/247321/pexels-photo-247321.jpeg",
+  "https://static.pexels.com/photos/373934/pexels-photo-373934.jpeg",
+  "https://static.pexels.com/photos/266840/pexels-photo-266840.jpeg",
+  "https://static.pexels.com/photos/292998/pexels-photo-292998.jpeg",
+  "https://static.pexels.com/photos/6346/healthy-light-woman-legs.jpg",
+  "https://static.pexels.com/photos/250356/pexels-photo-250356.jpeg",
+  "https://static.pexels.com/photos/7432/pexels-photo.jpg",
+  "https://static.pexels.com/photos/90365/pexels-photo-90365.jpeg",
+  "https://static.pexels.com/photos/421160/pexels-photo-421160.jpeg",
+  "https://static.pexels.com/photos/175689/pexels-photo-175689.jpeg",
+  "https://static.pexels.com/photos/48262/pexels-photo-48262.jpeg",
+  "https://static.pexels.com/photos/167706/pexels-photo-167706.jpeg",
+  "https://static.pexels.com/photos/533547/pexels-photo-533547.jpeg",
+  "https://static.pexels.com/photos/54334/running-shoe-shoe-brooks-highly-functional-54334.jpeg",
+  "https://static.pexels.com/photos/327273/pexels-photo-327273.jpeg",
+]
+
+1.upto(100) do |n|
+  rand(5..7).times do
+    ShoeImage.create! shoe_id: n,
+      image: shoe_images.sample
+  end
+end
