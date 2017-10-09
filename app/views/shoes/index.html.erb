@@ -1,27 +1,30 @@
-<% @shoes.each do |shoe| %>
+<div class="container">
   <div class="row">
-    Name: <%= shoe.name %>
-    <br>
-    Durability: <%= shoe.durability %>
-    <br>
-    Comfortability: <%= shoe.comfortability %>
-    <br>
-    Ventilation: <%= shoe.ventilation %>
-    <br>
-    Overall: <%= shoe.overall %>
-    <br>
-    Water_proof: <%= shoe.water_proof %>
-    <br>
-    Money_worthy: <%= shoe.money_worthy %>
-    <br>
-    Category Name: <%= shoe.category.name %>
-    <br>
-    Brand Name: <%= shoe.brand.name %>
-    <br>
+    <% @shoes.each do |shoe| %>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <a href="#" class="thumbnail">
+              <img src="http://langviet.info/lavicom/uploads/Hi%CC%80nh-5.png" alt="...">
+            </a>
+            <h4>
+              <strong>
+                <%= shoe.name %>
+              </strong>
+            </h4>
+            <span class="badge">
+              <%= shoe.category.name %>
+            </span>
+            <span class="badge">
+              <%= shoe.brand.name %>
+            </span>
+            <br>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <hr>
-  <hr>
-<% end %>
-<div class="d-flex flex-row justify-content-center">
-<%= will_paginate %>
+  <div class="d-flex flex-row justify-content-center">
+  <%= will_paginate %>
+  </div>
 </div>
