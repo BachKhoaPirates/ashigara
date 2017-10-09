@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171007150616) do
+ActiveRecord::Schema.define(version: 20171009043028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(version: 20171007150616) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shoe_images", force: :cascade do |t|
+    t.bigint "shoe_id"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shoe_id"], name: "index_shoe_images_on_shoe_id"
   end
 
   create_table "shoe_shops", force: :cascade do |t|
@@ -131,6 +139,7 @@ ActiveRecord::Schema.define(version: 20171007150616) do
   add_foreign_key "bookmarks", "users"
   add_foreign_key "reviews", "shoes"
   add_foreign_key "reviews", "users"
+  add_foreign_key "shoe_images", "shoes"
   add_foreign_key "shoe_shops", "shoes"
   add_foreign_key "shoe_shops", "shops"
   add_foreign_key "shoes", "brands"

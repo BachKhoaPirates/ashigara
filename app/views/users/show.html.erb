@@ -33,8 +33,14 @@
 <br>
 
 <% @shoe_bookmarks.each do |bookmark| %>
-  <p>Shoe name: <%= link_to bookmark.shoe.name, shoe_path %></p>
+  <p>Shoe name: <%= link_to bookmark.shoe.name %></p>
+  <%= link_to shoe_path(bookmark.shoe.id) do %>
+    <%= image_tag bookmark.shoe.shoe_images.first.image,
+      height: '500', width: '500' %>
+  <% end %>
+  <p>Shoe image: <%= link_to bookmark.shoe.name, shoe_path %></p>
   <p>Shoe brand: <%= bookmark.shoe.brand.name %></p>
   <p>Shoe category: <%= bookmark.shoe.category.name %></p>
+  <hr>
   <br>
 <% end %>
