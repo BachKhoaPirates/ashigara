@@ -4,14 +4,14 @@
       <div class="col-md-4">
         <div class="panel panel-default">
           <div class="panel-body">
-            <a href="#" class="thumbnail">
+            <%= link_to shoe_path(shoe), class: "thumbnail" do %>
               <img src="http://langviet.info/lavicom/uploads/Hi%CC%80nh-5.png" alt="...">
-            </a>
-            <h4>
-              <strong>
-                <%= shoe.name %>
-              </strong>
-            </h4>
+              <h4>
+                <strong>
+                  <%= shoe.name %>
+                </strong>
+              </h4>
+            <% end %>
             <span class="badge">
               <%= shoe.category.name %>
             </span>
