@@ -1,0 +1,9 @@
+<li id="review-<%= review.id %>">
+  <%= link_to gravatar_for(review.user, size: 50), review.user %>
+  <span class="user"><%= link_to review.user.username, review.user %></span>
+  <span>Review about shoe : <%= link_to review.shoe.name, shoe_path(review.shoe_id) %>: </span>
+  <span class="content"><%= review.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(review.created_at) %> ago.
+  </span>
+</li>

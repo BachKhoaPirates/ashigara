@@ -26,6 +26,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: ashigara_development
+  host: localhost
   pool: 5
   username: ashigara
   password: ashigara
@@ -35,6 +36,7 @@ test:
   adapter: postgresql
   encoding: unicode
   database: ashigara_test
+  host: localhost
   pool: 5
   username: ashigara
   password: ashigara
