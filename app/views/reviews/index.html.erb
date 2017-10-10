@@ -1,0 +1,6 @@
+<ul>
+  <% @reviews.each do |review|%>
+    <%= render partial: 'shared/review', locals: { review: review } %>
+  <% end %>
+  
+</ul>
