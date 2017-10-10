@@ -1,58 +1,29 @@
-<h1>show.html.erb</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<br>
-<br>
-
-<% if @user.current_user? current_user %>
-  <%= form_for @user do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username, value: @user.username %>
-    <br>
-    <p>Email: <%= @user.email %></p>
-    <br>
-    <%= f.label :dob %>
-    <%= f.text_field :dob, value: @user.dob %>
-    <br>
-    <%= f.label :foot_length %>
-    <%= f.number_field :foot_length, class: :text_field, step: :any %>
-    <br>
-    <%= f.label :foot_width %>
-    <%= f.number_field :foot_width, class: :text_field, step: :any %>
-    <br>
-    <div><%= f.submit "Save"%></div>
-  <% end %>
-  <br>
-  <%= link_to "Authentication", edit_user_registration_path %>
-<% else %>
-  <p>Username: <%= @user.username %></p>
-  <p>Email: <%= @user.email %></p>
-  <p>Dob: <%= @user.dob %></p>
-  <p>Foot length: <%= @user.foot_length %> (cm)</p>
-  <p>Foot width: <%= @user.foot_width %> (cm)</p>
-<% end %>
-<br>
-
-<% @shoe_bookmarks.each do |bookmark| %>
-  <p>Shoe name: <%= link_to bookmark.shoe.name %></p>
-  <%= link_to shoe_path(bookmark.shoe.id) do %>
-    <%= image_tag bookmark.shoe.shoe_images.first.image,
-      height: '500', width: '500' %>
-  <% end %>
-  <p>Shoe image: <%= link_to bookmark.shoe.name, shoe_path %></p>
-  <p>Shoe brand: <%= bookmark.shoe.brand.name %></p>
-  <p>Shoe category: <%= bookmark.shoe.category.name %></p>
-  <br>
-<% end %>
-
-<% @user_reviews.each do |review| %>
-  <p>Review about shoe name: <%= link_to review.shoe.name, shoe_path(review.shoe_id) %></p>
-  <!-- <p>Review content: <%= review.content %></p> -->
-  <%# if @user.current_user? current_user %>
-    <%#= link_to review, method: :delete, data: {confirm: "Are you sure?"} do %>
-      <!-- <i class="fa fa-trash-o fa-lg"></i> -->
-    <%# end %>
-  <%# end %>
-  <div><%= review.content %></div>
-  <div><%= review.created_at.strftime("%v") %></div>
-  <br>
-<% end %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+      <%= render 'user_info' %>
+      <div class="user_info">
+        <span>Username: <%= @user.username %></span>
+        <span>Email: <%= @user.email %></span>
+        <span>Dob: <%= @user.dob %></span>
+        <span>Foot length: <%= @user.foot_length %> (cm)</span>
+        <span>Foot width: <%= @user.foot_width %> (cm)</span>
+      </div>
+  </div>
+  <div class="col-md-8 col-md-offset-2">
+    <% if @user.bookmarks.any? %>
+      <h3>Bookmarks (<%= @user.bookmarks.count %>)</h3>
+      <ol class="bookmarks">
+        <%= render @shoe_bookmarks %>
+      </ol>
+    <% end %>
+  </div>
+  <div class="col-md-8 col-md-offset-2">
+    <% if @user.reviews.any? %>
+      <h3>Reviews (<%= @user.reviews.count %>)</h3>
+      <ol class="reviews">
+        <%= render @user_reviews %>
+      </ol>
+      <!--      = will_paginate @user_reviews %> -->
+    <% end %>
+  </div>
+</div>
