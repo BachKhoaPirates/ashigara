@@ -10,20 +10,20 @@
       </div>
   </div>
   <div class="col-md-8 col-md-offset-2">
+    <% if @user.bookmarks.any? %>
+      <h3>Bookmarks (<%= @user.bookmarks.count %>)</h3>
+      <ol class="bookmarks">
+        <%= render @shoe_bookmarks %>
+      </ol>
+    <% end %>
+  </div>
+  <div class="col-md-8 col-md-offset-2">
     <% if @user.reviews.any? %>
       <h3>Reviews (<%= @user.reviews.count %>)</h3>
       <ol class="reviews">
         <%= render @user_reviews %>
       </ol>
       <!--      = will_paginate @user_reviews %> -->
-    <% end %>
-  </div>
-  <div class="col-md-8 col-md-offset-2">
-    <% if @user.bookmarks.any? %>
-      <h3>Bookmarks (<%= @user.bookmarks.count %>)</h3>
-      <ol class="bookmarks">
-        <%= render @shoe_bookmarks %>
-      </ol>
     <% end %>
   </div>
 </div>
