@@ -1,28 +1,105 @@
-<nav class="navbar navbar-default" role="navigation">
+<!--<nav class="navbar navbar-default" role="navigation">-->
   <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <%= link_to "Ashigara", root_path, class: "navbar-brand" %>
-  </div>
+<!--  <div class="navbar-header">-->
+    <!--<%= link_to "Ashigara", root_path, class: "navbar-brand" %>-->
+<!--  </div>-->
 
   <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+<!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+<!--    <form class="navbar-form navbar-left" role="search">-->
+<!--      <div class="form-group">-->
+<!--        <input type="text" class="form-control" placeholder="Search">-->
+<!--      </div>-->
+<!--      <button type="submit" class="btn btn-default">Submit</button>-->
+<!--    </form>-->
 
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-        <%= link_to "My Profile", user_path(current_user) %>
-      </li>
-      <li>
-        <%= link_to "Edit Profile", edit_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-      </li>
-    </ul>
+<!--    <ul class="nav navbar-nav navbar-right">-->
+<!--      <li>-->
+      <!--  <%= link_to "My Profile", user_path(current_user) %>-->
+      <!--</li>-->
+      <!--<li>-->
+      <!--  <%= link_to "Edit Profile", edit_user_registration_path %>-->
+      <!--</li>-->
+      <!--<li>-->
+      <!--  <%= link_to "Log Out", destroy_user_session_path, method: :delete %>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</nav>-->
+<style>
+  #custom-nav {
+    width: 100%;
+    height: 56px;
+    background: white;
+    box-shadow: 0px 4px 3px #888888;
+  }
+  
+  #custom-name {
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 56px;
+    line-height: 56px;
+    font-size: 16px;
+    text-align: left;
+    float: left;
+  }
+  
+  #custom-search {
+    font-size: 13px;
+    width: 300px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    border: 1px solid #DDDDDD;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    padding: 6px 15px 6px 15px;
+  }
+   
+  #custom-search:focus {
+    font-size: 13px;
+    padding: 6px 15px 6px 15px;
+    box-shadow: 0 0 5px #1a97fc;
+    border: 1px solid #1a97fc;
+  }
+  
+  #custom-button-search {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background: red;
+    padding: 6px 15px 6px 15px;
+  }
+  
+  #custom-option {
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 56px;
+    line-height: 56px;
+    font-size: 16px;
+    text-align: right;
+    float: right;
+  }
+</style>
+<nav>
+  <div id="custom-nav">
+    <div style="float: left">
+      <div id="custom-name">
+        <%= link_to "足柄", root_path, style: "color: black; text-decoration: none;" %>  
+      </div>
+      <div style="height: 56px; display: flex; align-items: center;">
+        <input type="text" placeholder="靴名..." id="custom-search">
+        <div id="custom-button-search">
+          <%= image_tag("ic_search.png", :alt => "no image", style: "width: 12px; height: 12px;") %>
+        </div>
+      </div>
+    </div>
+    
+     <div id="custom-option">
+        <%= link_to "My Profile", user_path(current_user), style: "margin-right: 20px; color: black; text-decoration: none;" %>
+        <%= link_to "Edit Profile", edit_user_registration_path, style: "margin-right: 20px; color: black; text-decoration: none;" %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, style: "color: black; text-decoration: none;" %>
+    </div>
   </div>
 </nav>
