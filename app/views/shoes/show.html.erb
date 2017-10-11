@@ -1,20 +1,25 @@
-<% if @shoe.present? %>
-  Name: <%= @shoe.name %>
-  <br>
-  Durability: <%= @shoe.durability %>
-  <br>
-  Comfortability: <%= @shoe.comfortability %>
-  <br>
-  Ventilation: <%= @shoe.ventilation %>
-  <br>
-  Overall: <%= @shoe.overall %>
-  <br>
-  Water_proof: <%= @shoe.water_proof %>
-  <br>
-  Money_worthy: <%= @shoe.money_worthy %>
-  <br>
-  Category Name: <%= @shoe.category.name %>
-  <br>
-  Brand Name: <%= @shoe.brand.name %>
-  <br>
-<% end %>
+<div class="container">
+  <% if @shoe.present? %>
+    <div class="row">
+      <img class="thumbnail" src="http://langviet.info/lavicom/uploads/Hi%CC%80nh-5.png" alt="...">
+    </div>
+    Name: <%= @shoe.name %>
+    <br>
+    Durability: <%= @shoe.durability %>
+    <br>
+    Comfortability: <%= @shoe.comfortability %>
+    <br>
+    Ventilation: <%= @shoe.ventilation %>
+    <br>
+    Overall: <%= @shoe.overall %>
+    <br>
+    Water_proof: <%= @shoe.water_proof %>
+    <br>
+    Money_worthy: <%= @shoe.money_worthy %>
+    <br>
+    Category Name: <%= @shoe.category.name %>
+    <br>
+    Brand Name: <%= @shoe.brand.name %>
+    <br>
+  <% end %>
+</div>

@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
   has_many :bookmarks
+  has_many :reviews
 
   def self.from_omniauth(auth)
     user = where(email: auth.info.email).first_or_create do |u|
@@ -19,5 +20,9 @@ class User < ApplicationRecord
     #   user.remote_avatar_url = auth.info.image.gsub('http://', 'https://')
     # end
     return user
+  end
+
+  def current_user? user
+    self == user
   end
 end
