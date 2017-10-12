@@ -1,0 +1,25 @@
+<h4>Edit review</h4>
+<%= form_for [@review.shoe, @review] do |f| %>
+  <div class="row">
+    <label>Content<label>
+    <%= f.text_field :content, required: true %>
+  </div>
+  <div class="row">
+    <label>durability<label>
+    <%= f.text_field :durability, required: true %>
+  </div>
+  <div class="row">
+    <label>comfortability<label>
+    <%= f.text_field :comfortability, required: true %>
+  </div>
+  <div class="row">
+    <label>ventilation<label>
+    <%= f.text_field :ventilation, required: true %>
+  </div>
+  <div class="row">
+    <label>money_worthy<label>
+    <%= f.text_field :money_worthy, required: true%>
+  </div>
+  <%= f.submit "Submit"%>
+<% end %>
+<%= link_to "Discard", shoe_reviews_path(shoe_id: @review.shoe_id) %>

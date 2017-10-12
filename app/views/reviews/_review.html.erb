@@ -6,4 +6,8 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(review.created_at) %> ago.
   </span>
+  <% if review.user == current_user  %>
+    <%= link_to "edit", edit_shoe_review_path(shoe_id: review.shoe_id, id: review.id)%>
+    <%= link_to "delete", shoe_review_path(shoe_id: review.shoe_id, id: review.id), method: :delete%>
+  <% end %>
 </li>

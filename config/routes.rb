@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :reviews, only: [:show]
 
   resources :shoes, only: [:show, :index] do
-    resources :reviews, only: [:index]
+    resources :reviews
   end
 end
