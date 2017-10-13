@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :shoes, only: [:show, :index] do
     resources :reviews
   end
+
+
 end

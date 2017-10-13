@@ -1,10 +1,10 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_review, only: [:show, :update, :edit, :destroy]
-  
+
   def index
     @shoe = Shoe.find(params[:shoe_id])
-    @reviews = @shoe.reviews
+    @reviews = @shoe.reviews.includes :votes
   end
 
   def show

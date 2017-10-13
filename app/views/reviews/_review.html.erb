@@ -1,4 +1,12 @@
 <li id="review-<%= review.id %>">
+  <span><%= pluralize(review.votes.sum(:vote_type), 'votes') %></span>
+  <%#= form_for review.votes.new do |f|  %>
+    <%#= f.hidden_field :review_id, value: review.id %>
+    <%#= f.label :vote_type %>
+    <%#= f.number_field :vote_type, value: 1 %>
+    <%#= f.number_field :vote_type, value: -1 %>
+    <%#= f.submit %>
+  <%# end %>
   <%= image_tag review.shoe.shoe_images.first.image, height: '50', width: '50' %>
   <span class="user"><%= link_to review.user.username, review.user %></span>
   <span>Review about shoe : <%= link_to review.shoe.name, shoe_path(review.shoe_id) %>: </span>
