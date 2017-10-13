@@ -184,3 +184,12 @@ shoe_images = [
       image: shoe_images.sample
   end
 end
+
+p "seeding votes"
+1.upto(100) do |n|
+  rand(0..5).times do
+    Vote.create! user_id: rand(1..100),
+      review_id: n,
+      vote_type: [-1, 1].sample
+  end
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171009043028) do
+ActiveRecord::Schema.define(version: 20171012111544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,6 +135,14 @@ ActiveRecord::Schema.define(version: 20171009043028) do
     t.index ["sexes_id"], name: "index_users_on_sexes_id"
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "review_id"
+    t.integer "vote_type"
+    t.index ["review_id"], name: "index_votes_on_review_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "bookmarks", "shoes"
   add_foreign_key "bookmarks", "users"
   add_foreign_key "reviews", "shoes"
@@ -146,4 +154,6 @@ ActiveRecord::Schema.define(version: 20171009043028) do
   add_foreign_key "shoes", "categories"
   add_foreign_key "sizes", "shoes"
   add_foreign_key "users", "sexes", column: "sexes_id"
+  add_foreign_key "votes", "reviews"
+  add_foreign_key "votes", "users"
 end
