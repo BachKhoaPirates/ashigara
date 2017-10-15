@@ -1,30 +1,188 @@
-<div class="container">
-  <div class="row">
-    <% @shoes.each do |shoe| %>
-      <div class="col-md-4">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <%= link_to shoe_path(shoe), class: "thumbnail" do %>
-              <img src="http://langviet.info/lavicom/uploads/Hi%CC%80nh-5.png" alt="...">
-              <h4>
-                <strong>
-                  <%= shoe.name %>
-                </strong>
-              </h4>
-            <% end %>
-            <span class="badge">
-              <%= shoe.category.name %>
-            </span>
-            <span class="badge">
-              <%= shoe.brand.name %>
-            </span>
-            <br>
-          </div>
-        </div>
-      </div>
-    <% end %>
+<div class="row" style="margin-top: 70px">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10 title text-center">
+    人気靴
+    <br>
+    <span style="font-size: 16px; color: gray;">トップシューズは週に販売されています！</span>
   </div>
-  <div class="d-flex flex-row justify-content-center">
-  <%= will_paginate %>
-  </div>
+  <div class="col-sm-1"></div>
 </div>
+
+<div class="row" style="margin-top: 40px">
+  <div class="col-sm-1"></div>
+
+  <div class="col-sm-10">
+    <table>
+      <col width="23.5%">
+      <col width="2%">
+      <col width="23.5%">
+      <col width="2%">
+      <col width="23.5%">
+      <col width="2%">
+      <col width="23.5%">
+      <tr>
+        <th>
+          <div class="custom-card">
+            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
+          </div>
+          <div style="margin: 20px 20px 0px 20px;" class="text-center">Pieces Cardigan</div>
+          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$26.00</div>
+        </th>
+        <th></th>
+        <th>
+          <div class="custom-card">
+            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
+          </div>
+          <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
+          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
+        </th>
+        <th></th>
+        <th>
+          <div class="custom-card">
+            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
+          </div>
+          <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
+          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
+        </th>
+        <th></th>
+        <th>
+          <div class="custom-card">
+            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
+          </div>
+          <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
+          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
+        </th>
+      </tr>
+    </table>
+  </div>
+
+  <div class="col-sm-1"></div>
+</div>
+
+<div class="row" style="margin-top: 70px">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10 title text-center">
+    新発売
+    <br>
+    <span style="font-size: 16px; color: gray;">トップシューズは週に販売されています！</span>
+  </div>
+  <div class="col-sm-1"></div>
+</div>
+
+<div class="row" style="margin-top: 40px">
+  <div class="col-sm-1 arrow-left">
+    <img >
+  </div>
+
+  <div class="col-sm-10">
+    <table>
+      <col width="23.5%">
+      <col width="2%">
+      <col width="23.5%">
+      <col width="2%">
+      <col width="23.5%">
+      <col width="2%">
+      <col width="23.5%">
+      <tr>
+        <th>
+          <div class="custom-card">
+            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
+          </div>
+          <div style="margin: 20px 20px 0px 20px;" class="text-center">Pieces Cardigan</div>
+          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$26.00</div>
+        </th>
+        <th></th>
+        <th>
+          <div class="custom-card">
+            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
+          </div>
+          <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
+          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
+        </th>
+        <th></th>
+        <th>
+          <div class="custom-card">
+            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
+          </div>
+          <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
+          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
+        </th>
+        <th></th>
+        <th>
+          <div class="custom-card">
+            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
+          </div>
+          <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
+          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
+        </th>
+      </tr>
+    </table>
+  </div>
+
+  <div class="col-sm-1"></div>
+</div>
+
+<div class="row" style="margin-top: 70px">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10 title text-center">
+    ランダム
+    <br>
+    <span style="font-size: 16px; color: gray;">トップシューズは週に販売されています！</span>
+  </div>
+  <div class="col-sm-1"></div>
+</div>
+
+<div class="row" style="margin-top: 40px; margin-bottom: 50px">
+  <div class="col-sm-1"></div>
+
+  <div class="col-sm-10">
+    <table>
+      <col width="23.5%">
+      <col width="2%">
+      <col width="23.5%">
+      <col width="2%">
+      <col width="23.5%">
+      <col width="2%">
+      <col width="23.5%">
+      <tr>
+        <th>
+          <div class="custom-card">
+            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
+          </div>
+          <div style="margin: 20px 20px 0px 20px;" class="text-center">Pieces Cardigan</div>
+          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$26.00</div>
+        </th>
+        <th></th>
+        <th>
+          <div class="custom-card">
+            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
+          </div>
+          <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
+          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
+        </th>
+        <th></th>
+        <th>
+          <div class="custom-card">
+            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
+          </div>
+          <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
+          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
+        </th>
+        <th></th>
+        <th>
+          <div class="custom-card">
+            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
+          </div>
+          <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
+          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
+        </th>
+      </tr>
+    </table>
+  </div>
+
+  <div class="col-sm-1"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>

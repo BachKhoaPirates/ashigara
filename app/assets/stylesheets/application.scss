@@ -2,10 +2,18 @@
 
 $gray-light: #c4c4c4;
 
+@font-face {
+ font-family: 'sanfrancisco';
+ src: url('/assets/fonts/SanFranciscoDisplay-Thin.otf');
+ font-weight: normal;
+ font-style: normal;
+}
+
 body, html {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: sanfrancisco;
 }
 
 .login{
@@ -83,4 +91,22 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+.navbar {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 25px;
+  color: black;
+  text-decoration: none !important;
+}
+
+.title {
+  font-size: 25px;
+}
+
+.custom-card {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
 }
