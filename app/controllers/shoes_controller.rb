@@ -1,6 +1,7 @@
 class ShoesController < ApplicationController
   def index
-    @shoes = Shoe.all.paginate page: params[:page]
+    #@shoes = Shoe.all.paginate page: params[:page]
+    @shoes = Shoe.all
   end
 
   def show

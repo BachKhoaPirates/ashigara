@@ -33,37 +33,9 @@
         <col width="2%">
         <col width="23.5%">
         <tr>
-          <th>
-            <div class="custom-card">
-              <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-            </div>
-            <div style="margin: 20px 20px 0px 20px;" class="text-center">asdads Cardigan</div>
-            <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$26.00</div>
-          </th>
-          <th></th>
-          <th>
-            <div class="custom-card">
-              <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-            </div>
-            <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
-            <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
-          </th>
-          <th></th>
-          <th>
-            <div class="custom-card">
-              <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-            </div>
-            <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
-            <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
-          </th>
-          <th></th>
-          <th>
-            <div class="custom-card">
-              <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-            </div>
-            <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
-            <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
-          </th>
+          <% @shoes.first(4).each do |shoe| %>
+            <%= render partial: 'shared/shoe', locals: { shoe: shoe } %>
+          <% end %>
         </tr>
       </table>
     </div>
@@ -79,37 +51,9 @@
         <col width="2%">
         <col width="23.5%">
         <tr>
-          <th>
-            <div class="custom-card">
-              <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-            </div>
-            <div style="margin: 20px 20px 0px 20px;" class="text-center">Pieces Cardigan</div>
-            <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$26.00</div>
-          </th>
-          <th></th>
-          <th>
-            <div class="custom-card">
-              <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-            </div>
-            <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
-            <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
-          </th>
-          <th></th>
-          <th>
-            <div class="custom-card">
-              <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-            </div>
-            <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
-            <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
-          </th>
-          <th></th>
-          <th>
-            <div class="custom-card">
-              <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-            </div>
-            <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
-            <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
-          </th>
+          <% @shoes[20...24].each do |shoe| %>
+            <%= render partial: 'shared/shoe', locals: { shoe: shoe } %>
+          <% end %>
         </tr>
       </table>
     </div>
@@ -158,37 +102,9 @@
       <col width="2%">
       <col width="23.5%">
       <tr>
-        <th>
-          <div class="custom-card">
-            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-          </div>
-          <div style="margin: 20px 20px 0px 20px;" class="text-center">Pieces Cardigan</div>
-          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$26.00</div>
-        </th>
-        <th></th>
-        <th>
-          <div class="custom-card">
-            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-          </div>
-          <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
-          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
-        </th>
-        <th></th>
-        <th>
-          <div class="custom-card">
-            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-          </div>
-          <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
-          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
-        </th>
-        <th></th>
-        <th>
-          <div class="custom-card">
-            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-          </div>
-          <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
-          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
-        </th>
+        <% @shoes[5...9].each do |shoe| %>
+          <%= render partial: 'shared/shoe', locals: { shoe: shoe } %>
+        <% end %>
       </tr>
     </table>
   </div>
@@ -219,37 +135,9 @@
       <col width="2%">
       <col width="23.5%">
       <tr>
-        <th>
-          <div class="custom-card">
-            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-          </div>
-          <div style="margin: 20px 20px 0px 20px;" class="text-center">Pieces Cardigan</div>
-          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$26.00</div>
-        </th>
-        <th></th>
-        <th>
-          <div class="custom-card">
-            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-          </div>
-          <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
-          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
-        </th>
-        <th></th>
-        <th>
-          <div class="custom-card">
-            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-          </div>
-          <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
-          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
-        </th>
-        <th></th>
-        <th>
-          <div class="custom-card">
-            <img style="width: 100%; height: 300px;" src="shoes21.jpg">
-          </div>
-          <div style="margin: 20px 20px 0px 20px;" class="text-center">Sleeve Knit</div>
-          <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center">$55.00</div>
-        </th>
+        <% @shoes.last(4).each do |shoe| %>
+          <%= render partial: 'shared/shoe', locals: { shoe: shoe } %>
+        <% end %>
       </tr>
     </table>
   </div>
