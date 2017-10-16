@@ -11,7 +11,7 @@ class User < ApplicationRecord
     user = where(email: auth.info.email).first_or_create do |u|
       u.password = Devise.friendly_token[0,20]
       u.email = auth.info.email
-      # u.remote_avatar_url = auth.info.image.gsub('http://','https://')
+      u.avatar = auth.info.image.gsub('http://','https://')
       u.skip_confirmation!
       u.save!
     end
@@ -25,4 +25,5 @@ class User < ApplicationRecord
   def current_user? user
     self == user
   end
+
 end
