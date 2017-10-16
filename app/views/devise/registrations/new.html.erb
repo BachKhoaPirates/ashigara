@@ -1,38 +1,43 @@
-<div class="container login">
+<div class="container">
   <div class="row">
-    <div class="col-md-3 col-md-offset-9">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <h2>Signup</h2>
-          <hr class="colorgraph">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <div class="field">
-              <%= f.email_field :email, autofocus: true, class: "form-control input-lg", placeholder: "Email Address" %>
+    <div class="card-content valign center-block" style="font-size: 30px; margin-top: 30px">
+      Sign Up
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s1"></div>
+    <div class="col s1">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.email_field :email, autofocus: false, class: "form-control", placeholder: "User Name" %>
+        <br>
+        <%= f.email_field :email, autofocus: false, class: "form-control", placeholder: "Email Address" %>
+        <br>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+        <br>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password" %>
+        <br>
+        <%= f.submit "Sign Up", class: "waves-effect waves-light btn", style: "width: 100%; font-size: 13px; border-radius: 50px; box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0, 0, 0, 0.2);" %>
+        <div class="row" style="margin-top: 35px;">
+          <div class="col s1">
+            <div class="center-block facebook" style="text-align: center; border: 1px solid #3b5998; border-radius: 50px; height: 40px;">
+              <%= link_to "Signup with Facebook", user_facebook_omniauth_authorize_path, style: "line-height: 40px; text-decoration: none; color: #3b5998", class: "facebook-text"   %>
             </div>
-            <br>
-            <div class="field">
-              <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg", placeholder: "Password" %>
-            </div>
-            <br>
-            <div class="field">
-              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-lg", placeholder: "Confirm Password" %>
-            </div>
-            <hr class="colorgraph">
-            <div class="row">
-              <div class="col-md-6">
-              </div>
-              <div class="col-md-6">
-                <%= f.submit "Submit", class: "btn btn-lg btn-success btn-block" %>
-              </div>
-            </div>
-          <% end %>
-          <div class="row">
-            <div class="col-12 text-center">
-              <%= render "devise/shared/links" %>
+          </div>
+          <div class="col s1" >
+            <div class="center-block" style="text-align: center; border: 1px solid #d62d20; border-radius: 50px; height: 40px;">
+              <%= link_to "Signup with Google", user_google_oauth2_omniauth_authorize_path, style: "line-height: 40px; text-decoration: none; color: #d62d20;"%>
             </div>
           </div>
         </div>
-      </div>
+        <div class="row">
+          <%- if controller_name != 'sessions' %>
+            <span class="center-block" style="text-align: center; margin-top: 50px;">Already have a account?&nbsp;
+              <%= link_to "Sign in now", new_session_path(resource_name) %><br />
+            </span>
+          <% end -%>
+        </div>
+      <% end %>
     </div>
+    <div class="col s1"></div>
   </div>
 </div>
