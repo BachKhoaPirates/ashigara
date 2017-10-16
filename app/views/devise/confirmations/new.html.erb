@@ -6,6 +6,8 @@
         <h2>Resend confirmation instructions</h2>
         <hr class="colorgraph">
         <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+          <%= render "shared/devisemes" %>
+          
           <div class="field">
             <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control input-lg", placeholder: "Email Address" %>
           </div>
