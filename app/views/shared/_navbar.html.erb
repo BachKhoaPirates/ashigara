@@ -7,19 +7,20 @@
   </div>
 
   <form class="col-sm-6 form-inline d-flex justify-content-center">
-    <input class="form-control mr-sm-2" type="text" placeholder="Search" style="width: 75%">
+    <input type="text" placeholder="Search" style="width: 75%; margin-right: 20px; color: black; margin-top: 10px; font-size: 15px; line-height: 20px">
     <button class="btn btn-outline-success" type="submit">Search</button>
   </form>
 
-  <div class="col-sm-2 btn-group d-flex justify-content-end">
-    <div>
-      <img style="width: 40px; height: 40px;" src="assets/images/avatar.jpg" class="rounded-circle dropdown-toggle" data-toggle="dropdown" />
+  <div class="col-sm-2 d-flex justify-content-end">
+    <div class="w3-dropdown-hover white">
+      <img style="width: 40px; height: 40px;" src="https://firebasestorage.googleapis.com/v0/b/tripbook-7b00c.appspot.com/o/Minh.jpg?alt=media&token=79a5326a-3512-44cc-84f2-60b17b2df60c" class="rounded-circle" onclick="myFunction()"/>
 
-      <div class="dropdown-menu">
-        <%= link_to "プロフィール", user_path(current_user), class: "dropdown-item" %>
-        <%= link_to "プロファイル編集", edit_user_registration_path, class: "dropdown-item" %>
+      <div class="w3-dropdown-content" id="setting" style="margin-top: 10px;">
+        <%= link_to "プロフィール", user_path(current_user), class: "w3-bar-item black-text", style: "text-decoration: none;"%>
+        <br>
+        <%= link_to "プロファイル編集", edit_user_registration_path, class: "w3-bar-item black-text", style: "text-decoration: none;" %>
         <div class="dropdown-divider"></div>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "w3-bar-item black-text", style: "text-decoration: none;" %>
       </div>
     </div>
   </div>
@@ -27,3 +28,14 @@
   <div class="col-sm-1"></div>
 
 </nav>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("setting");
+    if (x.className.indexOf("w3-show") == -1) {  
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
