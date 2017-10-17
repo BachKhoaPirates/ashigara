@@ -1,29 +1,30 @@
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
+<div class="row user_profile">
+  <div class="col-md-8 mx-auto">
+    <div class="user_info col-md-6 mx-auto">
       <%= render 'user_info' %>
-      <div class="user_info">
-        <span>Username: <%= @user.username %></span>
-        <span>Email: <%= @user.email %></span>
-        <span>Dob: <%= @user.dob %></span>
-        <span>Foot length: <%= @user.foot_length %> (cm)</span>
-        <span>Foot width: <%= @user.foot_width %> (cm)</span>
-      </div>
-  </div>
-  <div class="col-md-8 col-md-offset-2">
-    <% if @user.bookmarks.any? %>
-      <h3>Bookmarks (<%= @user.bookmarks.count %>)</h3>
-      <ol class="bookmarks">
-        <%= render @shoe_bookmarks %>
-      </ol>
-    <% end %>
-  </div>
-  <div class="col-md-8 col-md-offset-2">
-    <% if @user.reviews.any? %>
-      <h3>Reviews (<%= @user.reviews.count %>)</h3>
-      <ol class="reviews">
-        <%= render @user_reviews %>
-      </ol>
-      <!--      = will_paginate @user_reviews %> -->
-    <% end %>
+    </div>
+
+    <div class="user_bookmarks" style="clear:both;">
+      <% if @user.bookmarks.any? %>
+        <h3>Bookmarks (<%= @user.bookmarks.count %>)</h3>
+        <ol class="bookmarks">
+          <%= render @shoe_bookmarks %>
+        </ol>
+      <% end %>
+    </div>
+
+    <div class="user_reviews">
+      <% if @user.reviews.any? %>
+        <h3>Reviews (<%= @user.reviews.count %>)</h3>
+        <ol class="reviews">
+          <% for @review in @user_reviews %>
+            <!-- <= review.id %> -->
+            <%= render 'users/user_reviews', object: @review %>
+          <% end %>
+        </ol>
+        <!--      = will_paginate @user_reviews %> -->
+      <% end %>
+    </div>
+
   </div>
 </div>

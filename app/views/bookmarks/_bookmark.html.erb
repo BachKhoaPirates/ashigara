@@ -1,6 +1,6 @@
 <li id="bookmark-<%= bookmark.id %>">
   <%= image_tag bookmark.shoe.shoe_images.first.image,
-    height: '100', width: '100' %>
+    height: '100', width: '100', class:"user_bookmarks_image" %>
   <span>Shoe: <%= link_to bookmark.shoe.name, shoe_path(bookmark.shoe_id) %></span>
   <span>Shoe image: <%= link_to bookmark.shoe.name, shoe_path %></span>
   <span>Shoe brand: <%= bookmark.shoe.brand.name %></span>

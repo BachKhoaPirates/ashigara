@@ -1,8 +1,10 @@
+
 <div class="row" id="review-<%= review.id %>">
  <div class="col-6">
      <div class="row">
-        <%= image_tag review.shoe.shoe_images.first.image, height: '30', width: '30', class: "rounded-circle" %>
-        <span class="user"><%= link_to review.user.username, review.user %></span>
+       <%= image_tag review.shoe.shoe_images.first.image, height: '30', width: '30', class: "rounded-circle" %>
+       <%= link_to gravatar_for(review.user, size: 150), review.user %> 
+       <span class="user"><%= link_to review.user.username, review.user %></span>
     </div>
     <hr>
     <div class="row">
