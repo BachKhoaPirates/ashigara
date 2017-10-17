@@ -16,7 +16,7 @@
     <% end %>
 
     <% if @user.reviews.any? %>
-      <div class="user_reviews">
+      <div class="user_reviews" style="clear:both;">
         <h3>Reviews (<%= @user.reviews.count %>)</h3>
         <ol class="reviews">
           <% for @review in @user_reviews %>
