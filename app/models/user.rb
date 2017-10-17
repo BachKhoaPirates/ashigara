@@ -12,6 +12,7 @@ class User < ApplicationRecord
       u.password = Devise.friendly_token[0,20]
       u.email = auth.info.email
       u.avatar = auth.info.image.gsub('http://','https://')
+      u.username = auth.info.name
       u.skip_confirmation!
       u.save!
     end
