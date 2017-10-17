@@ -8,6 +8,8 @@
     <div class="col s1"></div>
     <div class="col s1">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= render "shared/devisemes" %>
+
         <%= f.email_field :email, autofocus: false, class: "form-control", placeholder: "Email Address" %>
         <br>
         <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
