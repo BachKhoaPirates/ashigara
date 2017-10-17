@@ -13,7 +13,7 @@
 
   <div class="col-sm-2 d-flex justify-content-end">
     <div class="w3-dropdown-hover white">
-      <img style="width: 40px; height: 40px;" src="https://firebasestorage.googleapis.com/v0/b/tripbook-7b00c.appspot.com/o/Minh.jpg?alt=media&token=79a5326a-3512-44cc-84f2-60b17b2df60c" class="rounded-circle" onclick="myFunction()"/>
+      <img style="width: 40px; height: 40px;" src="<%= gravatar_link current_user %>" class="rounded-circle" onclick="myFunction()"/>
 
       <div class="w3-dropdown-content" id="setting" style="margin-top: 10px;">
         <%= link_to "プロフィール", user_path(current_user), class: "w3-bar-item black-text", style: "text-decoration: none;"%>
@@ -32,9 +32,9 @@
 <script>
 function myFunction() {
     var x = document.getElementById("setting");
-    if (x.className.indexOf("w3-show") == -1) {  
+    if (x.className.indexOf("w3-show") == -1) {
         x.className += " w3-show";
-    } else { 
+    } else {
         x.className = x.className.replace(" w3-show", "");
     }
 }
