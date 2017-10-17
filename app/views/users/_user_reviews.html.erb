@@ -1,0 +1,14 @@
+<li id="review-<%= @review.id %>">
+  <span><%= pluralize(@review.votes.sum(:vote_type), 'votes') %></span>
+  <%= image_tag @review.shoe.shoe_images.first.image, height: '100', width: '100', class:"user_reviews_image" %>
+  <span class="user"><%= link_to @review.user.username, @review.user %></span>
+  <span>Review about shoe : <%= link_to @review.shoe.name, shoe_path(@review.shoe_id) %>: </span>
+  <span class="content"><%= @review.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(@review.created_at) %> agol.
+  </span>
+  <% if @review.user == current_user  %>
+    <%= link_to "edit", edit_shoe_review_path(shoe_id: @review.shoe_id, id: @review.id)%>
+    <%= link_to "delete", shoe_review_path(shoe_id: @review.shoe_id, id: @review.id), method: :delete%>
+  <% end %>
+</li>

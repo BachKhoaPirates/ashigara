@@ -1,21 +1,23 @@
-<% if @user.current_user? current_user %>
-  <%= form_for @user do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username, value: @user.username %>
+<div class="col-md-8 col-md-offset-2 edit_user">
+  <% if @user.current_user? current_user %>
+    <%= form_for @user do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username, value: @user.username %>
+      <br>
+      <p>Email: <%= @user.email %></p>
+      <br>
+      <%= f.label :dob %>
+      <%= f.text_field :dob, value: @user.dob %>
+      <br>
+      <%= f.label :foot_length %>
+      <%= f.number_field :foot_length, class: :text_field, step: :any %>
+      <br>
+      <%= f.label :foot_width %>
+      <%= f.number_field :foot_width, class: :text_field, step: :any %>
+      <br>
+      <div><%= f.submit "Save"%></div>
+    <% end %>
     <br>
-    <p>Email: <%= @user.email %></p>
-    <br>
-    <%= f.label :dob %>
-    <%= f.text_field :dob, value: @user.dob %>
-    <br>
-    <%= f.label :foot_length %>
-    <%= f.number_field :foot_length, class: :text_field, step: :any %>
-    <br>
-    <%= f.label :foot_width %>
-    <%= f.number_field :foot_width, class: :text_field, step: :any %>
-    <br>
-    <div><%= f.submit "Save"%></div>
+    <%= link_to "Authentication", edit_user_registration_path %>
   <% end %>
-  <br>
-  <%= link_to "Authentication", edit_user_registration_path %>
-<% end %>
+</div>
