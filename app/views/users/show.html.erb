@@ -4,27 +4,27 @@
       <%= render 'user_info' %>
     </div>
 
-    <div class="user_bookmarks" style="clear:both;">
-      <% if @user.bookmarks.any? %>
+    <% if @user.bookmarks.any? %>
+      <div class="user_bookmarks" style="clear:both;">
         <h3>Bookmarks (<%= @user.bookmarks.count %>)</h3>
-        <ol class="bookmarks">
-          <%= render @shoe_bookmarks %>
-        </ol>
-      <% end %>
-    </div>
+        <div class="row">
+          <% for @bookmark in @shoe_bookmarks %>
+            <%= render 'bookmarks/bookmark', object: @bookmark %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
 
-    <div class="user_reviews">
-      <% if @user.reviews.any? %>
+    <% if @user.reviews.any? %>
+      <div class="user_reviews">
         <h3>Reviews (<%= @user.reviews.count %>)</h3>
         <ol class="reviews">
           <% for @review in @user_reviews %>
-            <!-- <= review.id %> -->
             <%= render 'users/user_reviews', object: @review %>
           <% end %>
         </ol>
         <!--      = will_paginate @user_reviews %> -->
-      <% end %>
-    </div>
-
+      </div>
+    <% end %>
   </div>
 </div>
