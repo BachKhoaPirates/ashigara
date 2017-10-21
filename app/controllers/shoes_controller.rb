@@ -7,6 +7,7 @@ class ShoesController < ApplicationController
   def show
     @shoe = Shoe.find_by id: params[:id]
     @reviews = @shoe.reviews
+    @shoe_shops = @shoe.shoe_shops.includes(:shop)
     unless @shoe.present?
       redirect_to root_path
     end
