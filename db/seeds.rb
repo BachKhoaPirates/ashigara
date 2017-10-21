@@ -24,7 +24,7 @@ user = User.new email: "b@b.com",
 user.skip_confirmation!
 user.save!
 
-user = User.new email: "c@cv.com",
+user = User.new email: "c@c.com",
   password: "123123",
   username: Faker::Name.name,
   dob: Faker::Date.backward,
