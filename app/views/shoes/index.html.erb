@@ -49,7 +49,7 @@
       </table>
     </div>
   </div>
-  
+
   <div class="row" style="margin-top: 50px">
     <div class="col-sm-5"></div>
     <div class="col-sm-1">
@@ -161,7 +161,7 @@
 $(document).ready(function(){
   $('.carousel').carousel();
 });
-    
+
 var slideIndex = 1;
 showDivs(slideIndex);
 
@@ -172,11 +172,11 @@ function plusDivs(n) {
 function showDivs(n) {
   var i;
   var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}    
+  if (n > x.length) {slideIndex = 1}
   if (n < 1) {slideIndex = x.length}
   for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
+     x[i].style.display = "none";
   }
-  x[slideIndex-1].style.display = "block";  
+  x[slideIndex-1].style.display = "block";
 }
 </script>
