@@ -1,5 +1,4 @@
 <nav class="navbar text-center bg-white">
-
   <div class="col-sm-1"></div>
 
   <div class="col-sm-2 d-flex justify-content-begin">
@@ -12,17 +11,30 @@
   </form>
 
   <div class="col-sm-2 d-flex justify-content-end">
-    <div class="w3-dropdown-hover white">
-      <img style="width: 40px; height: 40px;" src="<%= get_avatar current_user %>" class="rounded-circle" onclick="myFunction()"/>
+    <% if (!user_signed_in?) %>
+      <li class="nav-item">
+        <strong>
+          <%= link_to "Login", new_user_session_path, class: "text-babu nav-link" %>
+        </strong>
+      </li>
+      <li class="nav-item">
+        <strong>
+          <%= link_to "Sign Up", new_user_registration_path, class: "text-babu nav-link" %>
+        </strong>
+    </li>
+    <% else %>
+      <div class="w3-dropdown-hover white">
+        <img style="width: 40px; height: 40px;" src="<%= get_avatar current_user %>" class="rounded-circle" onclick="myFunction()"/>
 
-      <div class="w3-dropdown-content" id="setting" style="margin-top: 10px;">
-        <%= link_to "プロフィール", user_path(current_user), class: "w3-bar-item black-text", style: "text-decoration: none;"%>
-        <br>
-        <%= link_to "プロファイル編集", edit_user_registration_path, class: "w3-bar-item black-text", style: "text-decoration: none;" %>
-        <div class="dropdown-divider"></div>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "w3-bar-item black-text", style: "text-decoration: none;" %>
+        <div class="w3-dropdown-content" id="setting" style="margin-top: 10px;">
+          <%= link_to "プロフィール", user_path(current_user), class: "w3-bar-item black-text", style: "text-decoration: none;"%>
+          <br>
+          <%= link_to "プロファイル編集", edit_user_registration_path, class: "w3-bar-item black-text", style: "text-decoration: none;" %>
+          <div class="dropdown-divider"></div>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "w3-bar-item black-text", style: "text-decoration: none;" %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 
   <div class="col-sm-1"></div>
