@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
   def create
     @shoe = Shoe.find_by id: params[:shoe_id]
     @review = @shoe.reviews.new review_params
-    @review.user_id = current_user.id
+    @review.user = current_user
     if @review.save
       redirect_to @review.shoe
     else

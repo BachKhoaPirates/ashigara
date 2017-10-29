@@ -1,21 +1,79 @@
-<li id="review-<%= review.id %>">
-  <span><%= pluralize(review.votes.sum(:vote_type), 'votes') %></span>
-  <%#= form_for review.votes.new do |f|  %>
-    <%#= f.hidden_field :review_id, value: review.id %>
-    <%#= f.label :vote_type %>
-    <%#= f.number_field :vote_type, value: 1 %>
-    <%#= f.number_field :vote_type, value: -1 %>
-    <%#= f.submit %>
-  <%# end %>
-  <%= image_tag review.shoe.shoe_images.first.image, height: '50', width: '50' %>
-  <span class="user"><%= link_to review.user.username, review.user %></span>
-  <span>Review about shoe : <%= link_to review.shoe.name, shoe_path(review.shoe_id) %>: </span>
-  <span class="content"><%= review.content %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(review.created_at) %> ago.
-  </span>
+
+<div class="row" id="review-<%= review.id %>">
+ <div class="col-6">
+     <div class="row">
+       <%= link_to gravatar_for(review.user, size: 30), review.user %>
+       <span class="user"><%= link_to review.user.username, review.user %></span>
+    </div>
+    <hr>
+    <div class="row">
+        <span class="content"><%= review.content %></span>
+    </div>
+    <hr>
+    <div class="row">
+        <span><%= pluralize(review.votes.sum(:vote_type), 'votes') %>  </span>
+        <span class="timestamp">
+             |  Posted <%= time_ago_in_words(review.created_at) %> ago.
+        </span>
+    </div>
+ </div>
+
+ <div class="col-6">
+
+<div class="row">
+          <div class="col-6">
+            <strong>
+              Durability:
+            </strong>
+          </div>
+          <div class="col-6">
+            <span class="badge badge-pill badge-warning">
+              <%= review.durability %> <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>
+              Comfortability:
+            </strong>
+          </div>
+          <div class="col-6">
+            <span class="badge badge-pill badge-warning">
+              <%= review.comfortability %> <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>
+              Ventilation:
+            </strong>
+          </div>
+          <div class="col-6">
+            <span class="badge badge-pill badge-warning">
+              <%= review.ventilation %> <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <strong>
+              Money worthy:
+          </strong>
+          </div>
+          <div class="col-6">
+            <span class="badge badge-pill badge-warning">
+              <%= review.money_worthy %> <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+
+ </div>
+
   <% if review.user == current_user  %>
     <%= link_to "edit", edit_shoe_review_path(shoe_id: review.shoe_id, id: review.id)%>
     <%= link_to "delete", shoe_review_path(shoe_id: review.shoe_id, id: review.id), method: :delete%>
   <% end %>
-</li>
+</div>

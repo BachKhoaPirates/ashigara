@@ -1,11 +1,11 @@
-<li id="bookmark-<%= bookmark.id %>">
-  <%= image_tag bookmark.shoe.shoe_images.first.image,
-    height: '100', width: '100' %>
-  <span>Shoe: <%= link_to bookmark.shoe.name, shoe_path(bookmark.shoe_id) %></span>
-  <span>Shoe image: <%= link_to bookmark.shoe.name, shoe_path %></span>
-  <span>Shoe brand: <%= bookmark.shoe.brand.name %></span>
-  <span>Shoe category: <%= bookmark.shoe.category.name %></span>
+<div class="col-md-4 user_bookmarks_image_1">
+  <%= image_tag @bookmark.shoe.shoe_images.first.image,
+    height: '100', width: '100', class: "rounded-circle" %>
+  <br>
+  <br>
+  <span>Shoe: <%= link_to @bookmark.shoe.name, shoe_path(@bookmark.shoe_id) %></span>
+  <br>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(bookmark.created_at) %> ago.
+    Posted <%= time_ago_in_words(@bookmark.created_at) %> ago.
   </span>
-</li>
+</div>

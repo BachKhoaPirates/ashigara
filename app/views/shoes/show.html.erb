@@ -1,55 +1,205 @@
 <div class="container">
   <% if @shoe.present? %>
     <div class="row">
-      <img class="thumbnail" src="http://langviet.info/lavicom/uploads/Hi%CC%80nh-5.png" alt="...">
+      <div class="col-8">
+        <img class="img-fluid" src="http://langviet.info/lavicom/uploads/Hi%CC%80nh-5.png" alt="...">
+      </div>
+      <div class="col-4">
+        <h2>
+          <strong>
+            <%= @shoe.name %>
+          </strong>
+        </h2>
+        <div class="row">
+
+          <a href="#" class="badge badge-pill badge-primary"><%= @shoe.category.name %></a>
+          <a href="#" class="badge badge-pill badge-primary"><%= @shoe.brand.name %></a href="#">
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-6">
+            <strong>
+              Durability:
+            </strong>
+          </div>
+          <div class="col-6">
+            <span class="badge badge-pill badge-warning">
+              <%= @shoe.durability %> <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>
+              Comfortability:
+            </strong>
+          </div>
+          <div class="col-6">
+            <span class="badge badge-pill badge-warning">
+              <%= @shoe.comfortability %> <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>
+              Ventilation:
+            </strong>
+          </div>
+          <div class="col-6">
+            <span class="badge badge-pill badge-warning">
+              <%= @shoe.ventilation %> <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>
+              Overall:
+            </strong>
+          </div>
+          <div class="col-6">
+              <span class="badge badge-pill badge-warning">
+                <%= @shoe.overall %> <i class="fa fa-star" aria-hidden="true"></i>
+              </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>
+              Money worthy:
+          </strong>
+          </div>
+          <div class="col-6">
+            <span class="badge badge-pill badge-warning">
+              <%= @shoe.money_worthy %> <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+              <strong>
+                Water proof:
+              </strong>
+            </div>
+            <div class="col-6">
+              <span class="badge badge-pill badge-warning">
+                <%= @shoe.water_proof %>
+              </span>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#exampleModal">
+              See <%= pluralize(@shoe_shops.size, "shop") %> selling
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    Name: <%= @shoe.name %>
-    <br>
-    Durability: <%= @shoe.durability %>
-    <br>
-    Comfortability: <%= @shoe.comfortability %>
-    <br>
-    Ventilation: <%= @shoe.ventilation %>
-    <br>
-    Overall: <%= @shoe.overall %>
-    <br>
-    Water_proof: <%= @shoe.water_proof %>
-    <br>
-    Money_worthy: <%= @shoe.money_worthy %>
-    <br>
-    Category Name: <%= @shoe.category.name %>
-    <br>
-    Brand Name: <%= @shoe.brand.name %>
-    <br>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><%= pluralize(@shoe_shops.size, "shop") %> selling</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <% @shoe_shops.each do |shop| %>
+              <div class="row"><b><%= shop.shop.name %></b></div>
+              <div class="row">Address: <%= shop.shop.address %></div>
+              <% if shop != @shoe_shops.last %>
+                <hr>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="card">
+          <div class="card-body">
+            <div class="card-title text-center">
+              <h3>List Review</h3>
+            </div>
+            <div class="card-text">
+              <% @reviews.each do |review| %>
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-text">
+                    <%= render partial: 'reviews/review', locals: { review: review } %>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+      </div>
     <hr>
-    <strong><%= link_to "List Reviews", shoe_reviews_path(@shoe) %></strong>
-    <hr>
-    <h4>Create review</h4>
-    <%= form_for [@shoe, @shoe.reviews.new] do |f| %>
-      <div class="row">
-        <label>Content<label>
-        <%= f.text_field :content, required: true %>
+    <div class="row justify-content-md-center">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title text-center">
+              <h3>Create review</h3>
+            </div>
+            <hr>
+            <div class="card-text">
+              <%= form_for [@shoe, @shoe.reviews.new] do |f| %>
+                <div class="row">
+                  <div class="col-3">
+                    Content
+                  </div>
+                  <div class="col-9">
+                    <%= f.text_field :content, required: true %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3">
+                    durability
+                  </div>
+                  <div class="col-9">
+                    <%= f.text_field :durability, required: true %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3">
+                      comfortability
+                  </div>
+                  <div class="col-9">
+                    <%= f.text_field :comfortability, required: true %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3">
+                      ventilation
+                  </div>
+                  <div class="col-9">
+                    <%= f.text_field :ventilation, required: true %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3">
+                      money_worthy
+                  </div>
+                  <div class="col-9">
+                    <%= f.text_field :money_worthy, required: true %>
+                  </div>
+                </div>
+                <%= f.submit "Submit", class: "btn btn-primary pull-right"%>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="row">
-        <label>durability<label>
-        <%= f.text_field :durability, required: true %>
-      </div>
-      <div class="row">
-        <label>comfortability<label>
-        <%= f.text_field :comfortability, required: true %>
-      </div>
-      <div class="row">
-        <label>ventilation<label>
-        <%= f.text_field :ventilation, required: true %>
-      </div>
-      <div class="row">
-        <label>money_worthy<label>
-        <%= f.text_field :money_worthy, required: true%>
-      </div>
-      <%= f.submit "Submit"%>
-    <% end %>
+    </div>
 
   <% end %>
 

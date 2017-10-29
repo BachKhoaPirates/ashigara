@@ -3,7 +3,8 @@
     <div class="custom-card">
       <img style="width: 100%; height: 300px;" src=<%= shoe.shoe_images.first.image %>>
     </div>
-    <div style="margin: 20px 20px 0px 20px;" class="text-center"><%= shoe.name %></div>
+    <div style="margin: 20px 20px 0px 20px;" class="text-center"><%= link_to shoe.name, shoe_path(shoe) %></div>
+    
     <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center"><%= shoe.money_worthy %></div>
   </th>
   <th></th>

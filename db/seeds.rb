@@ -24,7 +24,7 @@ user = User.new email: "b@b.com",
 user.skip_confirmation!
 user.save!
 
-user = User.new email: "c@cv.com",
+user = User.new email: "c@c.com",
   password: "123123",
   username: Faker::Name.name,
   dob: Faker::Date.backward,
@@ -185,11 +185,11 @@ shoe_images = [
   end
 end
 
-p "seeding votes"
-1.upto(100) do |n|
-  rand(0..5).times do
-    Vote.create! user_id: rand(1..100),
-      review_id: n,
-      vote_type: [-1, 1].sample
-  end
-end
+# p "seeding votes"
+# 1.upto(100) do |n|
+#   rand(0..5).times do
+#     Vote.create! user_id: rand(1..100),
+#       review_id: n,
+#       vote_type: [-1, 1].sample
+#   end
+# end

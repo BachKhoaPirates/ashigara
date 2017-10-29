@@ -1,10 +1,11 @@
 @import "bootstrap";
+@import "toastr";
 
 $gray-light: #c4c4c4;
 
 @font-face {
  font-family: 'sanfrancisco';
- src: url('/assets/fonts/SanFranciscoDisplay-Thin.otf');
+ src: url('SanFranciscoDisplay-Thin.otf');
  font-weight: normal;
  font-style: normal;
 }
@@ -98,7 +99,7 @@ span.picture {
 }
 
 .navbar-brand {
-  font-size: 25px;
+  font-size: 28px;
   color: black;
   text-decoration: none !important;
 }
@@ -109,4 +110,31 @@ span.picture {
 
 .custom-card {
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.user_reviews_image {
+  float: left;
+  margin-right: 10px;
+  padding-bottom: 5px;
+}
+
+.bookmarks {
+  list-style: none;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+
+.text-babu {
+  color: #000000 !important;
+  font-size: 1.2em;
 }

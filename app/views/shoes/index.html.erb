@@ -49,7 +49,7 @@
       </table>
     </div>
   </div>
-  
+
   <div class="row" style="margin-top: 50px">
     <div class="col-sm-5"></div>
     <div class="col-sm-1">
@@ -147,7 +147,15 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 <script>
+<<<<<<< HEAD
     
+=======
+
+$(document).ready(function(){
+  $('.carousel').carousel();
+});
+
+>>>>>>> f301e557740a63b4e7de1df9598cac8de20874c1
 var slideIndex = 1;
 showDivs(slideIndex);
 
@@ -158,11 +166,11 @@ function plusDivs(n) {
 function showDivs(n) {
   var i;
   var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}    
+  if (n > x.length) {slideIndex = 1}
   if (n < 1) {slideIndex = x.length}
   for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
+     x[i].style.display = "none";
   }
-  x[slideIndex-1].style.display = "block";  
+  x[slideIndex-1].style.display = "block";
 }
 </script>
