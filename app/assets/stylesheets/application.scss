@@ -5,7 +5,7 @@ $gray-light: #c4c4c4;
 
 @font-face {
  font-family: 'sanfrancisco';
- src: url('/assets/fonts/SanFranciscoDisplay-Thin.otf');
+ src: url('SanFranciscoDisplay-Thin.otf');
  font-weight: normal;
  font-style: normal;
 }
@@ -99,7 +99,7 @@ span.picture {
 }
 
 .navbar-brand {
-  font-size: 25px;
+  font-size: 28px;
   color: black;
   text-decoration: none !important;
 }
@@ -132,4 +132,9 @@ span.picture {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
   }
+}
+
+.text-babu {
+  color: #000000 !important;
+  font-size: 1.2em;
 }

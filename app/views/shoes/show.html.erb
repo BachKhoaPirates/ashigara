@@ -88,8 +88,42 @@
               </span>
             </div>
         </div>
+        <div class="row">
+          <div class="col-12">
+            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#exampleModal">
+              See <%= pluralize(@shoe_shops.size, "shop") %> selling
+            </button>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><%= pluralize(@shoe_shops.size, "shop") %> selling</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <% @shoe_shops.each do |shop| %>
+              <div class="row"><b><%= shop.shop.name %></b></div>
+              <div class="row">Address: <%= shop.shop.address %></div>
+              <% if shop != @shoe_shops.last %>
+                <hr>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="card">
           <div class="card-body">
             <div class="card-title text-center">
