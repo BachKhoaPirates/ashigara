@@ -1,15 +1,19 @@
 <div class="row" id="review-<%= review.id %>">
  <div class="col-6">
      <div class="row d-flex align-items-center">
-       <!--<%= link_to gravatar_for(review.user, size: 30), review.user %>-->
-       <%= image_tag("a.jpg", :style => 'box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.2), 2px 3px 10px 0 rgba(0, 0, 0, 0.2); border-radius: 50px; width: 40px; height: 40px;')%>
-       <span class="user d-flex align-items-center" style="font-size: 20px; margin-left: 30px"><%= link_to review.user.username, review.user, style: "text-decoration: none; color: black; " %></span>
+       <%= link_to gravatar_for(review.user, size: 30), review.user %>
+       <% if review.user.username != nil %>
+         <span class="user d-flex align-items-center" style="font-size: 20px; margin-left: 30px"><%= link_to review.user.username, review.user, style: "text-decoration: none; color: black; " %></span>
+       <% else %>
+         <span class="user d-flex align-items-center" style="font-size: 20px; margin-left: 30px"><%= link_to review.user.email, review.user, style: "text-decoration: none; color: black; " %></span>
+       <% end %>
     </div>
     <div class="row" style="margin-top: 25px">
         <span class="content"><%= review.content %></span>
     </div>
     <div class="row" style="margin-top: 10px">
-        <span  style="margin-right: 10px; color: #159588"><%= pluralize(review.votes.sum(:vote_type), 'votes') %>  </span>
+      
+        <%= render partial: 'shared/vote_count', locals: { review: review } %>
         |
         <span class="timestamp" style="margin-left: 10px; margin-right: 10px;">
           Posted <%= time_ago_in_words(review.created_at) %> ago
@@ -65,11 +69,16 @@
           </div>
         </div>
  </div>
-
-  <% if review.user == current_user  %>
-    <%= link_to "edit", edit_shoe_review_path(shoe_id: review.shoe_id, id: review.id)%>
-    <%= link_to "delete", shoe_review_path(shoe_id: review.shoe_id, id: review.id), method: :delete%>
-  <% end %>
-
-
 </div>
+
+<% if review.user == current_user  %>
+  <div class='row'>
+    <div class='col-12'>
+      <div class='pull-right'>
+        <%= link_to "edit", edit_shoe_review_path(shoe_id: review.shoe_id, id: review.id)%>
+        |
+        <%= link_to "delete", shoe_review_path(shoe_id: review.shoe_id, id: review.id), method: :delete%>
+      </div>
+    </div>
+  </div>
+<% end %>
