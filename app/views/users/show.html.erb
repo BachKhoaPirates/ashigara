@@ -1,12 +1,15 @@
 <div class="row user_profile">
   <div class="col-md-8 mx-auto">
-    <div class="user_info col-md-6 mx-auto">
+    <div class="col-md-6 mx-auto" style="font-size: 30px; margin-top: 30px; margin-bottom: 30px">
+      <span><%= @user.username %></span>
+    </div>
+    <div class="user_info col-md-8 mx-auto" style="margin-bottom: 100px">
       <%= render 'user_info' %>
     </div>
 
     <% if @user.bookmarks.any? %>
       <div class="user_bookmarks" style="clear:both;">
-        <h3>Bookmarks (<%= @user.bookmarks.count %>)</h3>
+        <h4>Bookmarks (<%= @user.bookmarks.count %>)</h4>
         <div class="row">
           <% for @bookmark in @shoe_bookmarks %>
             <%= render 'bookmarks/bookmark', object: @bookmark %>
@@ -17,7 +20,7 @@
 
     <% if @user.reviews.any? %>
       <div class="user_reviews" style="clear:both;">
-        <h3>Reviews (<%= @user.reviews.count %>)</h3>
+        <h4>Reviews (<%= @user.reviews.count %>)</h4>
         <ol class="reviews">
           <% for @review in @user_reviews %>
             <%= render 'users/user_reviews', object: @review %>
