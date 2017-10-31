@@ -23,7 +23,7 @@
 
  <div class="col-6">
 
-<div class="row">
+<div class="row" style="margin-top: 30px">
           <div class="col-4">
               Durability:
           </div>
@@ -44,20 +44,26 @@
           </div>
         </div>
         
-
-        <div class="row">
-          <div class="col-6">
-            <strong>
+        <div class="row" style="margin-top: 20px">
+          <div class="col-4">
               Money worthy:
-          </strong>
           </div>
-          <div class="col-6">
-            <span class="badge badge-pill badge-warning">
-              <%= review.money_worthy %> <i class="fa fa-star" aria-hidden="true"></i>
+          <div class="col-2">
+            <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
+              <%= review.money_worthy %> 
+              <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
+            </span>
+          </div>
+          <div class="col-4">
+              Ventilation:
+          </div>
+          <div class="col-2">
+            <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
+              <%= review.ventilation %> 
+              <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
             </span>
           </div>
         </div>
-
  </div>
 
   <% if review.user == current_user  %>

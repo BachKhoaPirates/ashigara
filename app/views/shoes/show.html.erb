@@ -7,7 +7,7 @@
       <div class="col-6">
         <h1>
           <strong>
-            <%= @shoe.name %>
+            <%= @shoe.name %> <%= render partial: 'shared/bookmark_button', locals: { shoe: @shoe } %>
           </strong>
         </h1>
         <div class="row d-flex align-items-center" style="margin-left: 5px">
@@ -207,7 +207,5 @@
     </div>
 
   <% end %>
-
-  <%= render partial: 'shared/bookmark_button', locals: { shoe: @shoe } %>
 
 </div>
