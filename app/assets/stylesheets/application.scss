@@ -94,16 +94,6 @@ span.picture {
   }
 }
 
-.navbar {
-  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand {
-  font-size: 28px;
-  color: black;
-  text-decoration: none !important;
-}
-
 .title {
   font-size: 30px;
 }
@@ -137,4 +127,54 @@ span.picture {
 .text-babu {
   color: #000000 !important;
   font-size: 1.2em;
+}
+
+/* nav bar */
+
+.custom-nav {
+  padding: 10px;
+  height: 80px;
+}
+
+.custom-nav-main {
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.2), 2px 3px 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 2px;  
+  margin-left: 40px;
+}
+
+.custom-nav-search {
+  border: none;
+  padding: 15px 20px 15px 20px;
+  width: 200px;
+  border-radius: 2px 0px 0px 2px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+// .custom-nav-search:focus {
+//     width: 70%;
+// }
+
+.custom-nav_search-icon-main {
+  border-radius: 0px 2px 2px 0px;
+  background: white;
+  width: 50px;
+  height: 50px;
+  padding-left: 10px;
+}
+
+.custom-nav_search-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.custom-nav-brand {
+  font-size: 35px;
+  color: black;
+  text-decoration: none !important;
+  line-height: 60px;
+}
+
+.custom-login-form-label li {
+   display: inline;
 }

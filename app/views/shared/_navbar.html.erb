@@ -1,27 +1,19 @@
-<nav class="navbar text-center bg-white">
-  <div class="col-sm-1"></div>
-
-  <div class="col-sm-2 d-flex justify-content-begin">
-    <%= link_to "足柄", root_path, style: "color: black; text-decoration: none;", class:"navbar-brand" %>
+<div class="row custom-nav">
+  <div class="col-4 d-flex align-items-center">
+    <div class="row custom-nav-main">
+      <input type="text" class="form-control custom-nav-search rounded-left" placeholder="Search">
+      <div class="custom-nav_search-icon-main d-flex align-items-center">
+        <img src="ic_search_black.png" class="custom-nav_search-icon" >
+      </div>
+    </div>
   </div>
-
-  <form class="col-sm-6 form-inline d-flex justify-content-center">
-    <input type="text" placeholder="Search" style="width: 75%; margin-right: 20px; color: black; margin-top: 10px; font-size: 15px; line-height: 20px">
-    <button class="btn btn-outline-success waves-effect waves-light" type="submitt">Search</button>
-  </form>
-
-  <div class="col-sm-2 d-flex justify-content-end">
+  <div class="col-4 text-center">
+    <%= link_to "足柄", root_path, class:"custom-nav-brand" %>
+  </div>
+  <div class="col-4" style="padding-right: 40px; font-size: 13px">
     <% if (!user_signed_in?) %>
-      <li class="nav-item">
-        <strong>
-          <%= link_to "Login", new_user_session_path, class: "text-babu nav-link" %>
-        </strong>
-      </li>
-      <li class="nav-item">
-        <strong>
-          <%= link_to "Sign Up", new_user_registration_path, class: "text-babu nav-link" %>
-        </strong>
-    </li>
+    <%= link_to "Sign Up", new_user_registration_path, class: "text-babu nav-link", style: "float: right" %>
+    <%= link_to "Login", new_user_session_path, class: "text-babu nav-link", style: "float: right"%>
     <% else %>
       <div class="w3-dropdown-hover white">
         <img style="width: 40px; height: 40px;" src="<%= get_avatar current_user %>" class="rounded-circle" onclick="myFunction()"/>
@@ -36,18 +28,15 @@
       </div>
     <% end %>
   </div>
+</div>
 
-  <div class="col-sm-1"></div>
-
-</nav>
-
-<script>
-function myFunction() {
-    var x = document.getElementById("setting");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
+<!--<script>-->
+<!--function myFunction() {-->
+<!--    var x = document.getElementById("setting");-->
+<!--    if (x.className.indexOf("w3-show") == -1) {-->
+<!--        x.className += " w3-show";-->
+<!--    } else {-->
+<!--        x.className = x.className.replace(" w3-show", "");-->
+<!--    }-->
+<!--}-->
+<!--</script>-->
