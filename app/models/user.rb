@@ -27,4 +27,26 @@ class User < ApplicationRecord
     self == user
   end
 
+  def has_vote?(review_id)
+    Vote.exists?(user_id: self.id, review_id: review_id)
+  end
+
+  def add_vote?(review_id)
+    if has_vote?(review_id)
+      return false
+    else
+      Vote.create!(user_id: self.id, review_id: review_id)
+    end
+
+  end
+
+  def delete_vote?(review_id)
+    unless has_vote?(review_id)
+      return false
+    else
+      Vote.where(user_id: self.id, review_id: review_id).delete_all
+      return true
+    end
+  end
+
 end
