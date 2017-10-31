@@ -49,4 +49,25 @@ class User < ApplicationRecord
     end
   end
 
+  def add_bookmark?(shoe_id)
+    if has_bookmark?(shoe_id)
+      return false
+    else
+      Bookmark.create!(user_id: self.id, shoe_id: shoe_id)
+    end
+
+  end
+
+  def delete_bookmark?(shoe_id)
+    unless has_bookmark?(shoe_id)
+      return false
+    else
+      Bookmark.where(user_id: self.id, shoe_id: shoe_id).delete_all
+      return true
+    end
+  end
+
+  def has_bookmark?(shoe_id)
+    Bookmark.exists?(user_id: self.id, shoe_id: shoe_id)
+  end
 end
