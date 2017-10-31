@@ -1,19 +1,21 @@
 <div class="row custom-nav">
-  <div class="col-4 d-flex align-items-center">
+  <div class="col-2">
+    <%= link_to "足柄", root_path, class:"custom-nav-brand" %>
+  </div>
+  
+  <div class="col-8 d-flex justify-content-start align-items-center">
     <div class="row custom-nav-main">
       <input type="text" class="form-control custom-nav-search rounded-left" placeholder="Search">
       <div class="custom-nav_search-icon-main d-flex align-items-center">
-        <img src="ic_search_black.png" class="custom-nav_search-icon" >
+        <%= image_tag("ic_search_black.png", :class => 'custom-nav_search-icon')%>
       </div>
     </div>
   </div>
-  <div class="col-4 text-center">
-    <%= link_to "足柄", root_path, class:"custom-nav-brand" %>
-  </div>
-  <div class="col-4" style="padding-right: 40px; font-size: 13px">
+  
+  <div class="col-2 d-flex align-items-center" style="padding-right: 40px; font-size: 13px">
     <% if (!user_signed_in?) %>
-    <%= link_to "Sign Up", new_user_registration_path, class: "text-babu nav-link", style: "float: right" %>
     <%= link_to "Login", new_user_session_path, class: "text-babu nav-link", style: "float: right"%>
+    <%= link_to "Sign Up", new_user_registration_path, class: "text-babu nav-link", style: "float: right" %>
     <% else %>
       <div class="w3-dropdown-hover white">
         <img style="width: 40px; height: 40px;" src="<%= get_avatar current_user %>" class="rounded-circle" onclick="myFunction()"/>
@@ -30,13 +32,13 @@
   </div>
 </div>
 
-<!--<script>-->
-<!--function myFunction() {-->
-<!--    var x = document.getElementById("setting");-->
-<!--    if (x.className.indexOf("w3-show") == -1) {-->
-<!--        x.className += " w3-show";-->
-<!--    } else {-->
-<!--        x.className = x.className.replace(" w3-show", "");-->
-<!--    }-->
-<!--}-->
-<!--</script>-->
+<script>
+function myFunction() {
+    var x = document.getElementById("setting");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
