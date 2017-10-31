@@ -11,11 +11,11 @@
     <div class="row" style="margin-top: 10px">
         <span  style="margin-right: 10px; color: #159588"><%= pluralize(review.votes.sum(:vote_type), 'votes') %>  </span>
         |
-        <span class="timestamp" style="margin-left: 10px">
-          Posted <%= time_ago_in_words(review.created_at) %> ago.
+        <span class="timestamp" style="margin-left: 10px; margin-right: 10px;">
+          Posted <%= time_ago_in_words(review.created_at) %> ago
         </span>
         |
-        <span>
+        <span style="margin-left: 10px;">
           <%= render partial: 'shared/vote_button', locals: { review: review } %>
         </span>
     </div>
@@ -24,24 +24,22 @@
  <div class="col-6">
 
 <div class="row">
-          <div class="col-3">
-            <strong>
+          <div class="col-4">
               Durability:
-            </strong>
           </div>
-          <div class="col-3">
-            <span class="badge badge-pill badge-warning">
-              <%= review.durability %> <i class="fa fa-star" aria-hidden="true"></i>
+          <div class="col-2">
+            <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
+              <%= review.durability %> 
+              <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
             </span>
           </div>
-          <div class="col-3">
-            <strong>
+          <div class="col-4">
               Comfortability:
-            </strong>
           </div>
-          <div class="col-3">
-            <span class="badge badge-pill badge-warning">
-              <%= review.comfortability %> <i class="fa fa-star" aria-hidden="true"></i>
+          <div class="col-2">
+            <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
+              <%= review.comfortability %> 
+              <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
             </span>
           </div>
         </div>
