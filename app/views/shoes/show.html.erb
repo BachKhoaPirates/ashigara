@@ -38,7 +38,7 @@
           </div>
           <div class="col-3">
             <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-              <%= @shoe.durability %> 
+              <%= @shoe.durability %>
               <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
             </span>
           </div>
@@ -47,7 +47,7 @@
           </div>
           <div class="col-3">
             <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-              <%= @shoe.comfortability %> 
+              <%= @shoe.comfortability %>
               <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
             </span>
           </div>
@@ -113,8 +113,9 @@
           </div>
           <div class="modal-body">
             <% @shoe_shops.each do |shop| %>
-              <div class="row"><b><%= shop.shop.name %></b></div>
-              <div class="row">Address: <%= shop.shop.address %></div>
+              <div><b><%= shop.shop.name %></b></div>
+              <div>Address: <%= shop.shop.address %></div>
+              <div>Website: &nbsp;<%= link_to shop.shop.website %></div>
               <% if shop != @shoe_shops.last %>
                 <hr>
               <% end %>
@@ -147,7 +148,7 @@
           </div>
       </div>
     <hr>
-    
+
     <div class="row justify-content-md-center">
       <div class="col-12">
         <div class="card">
