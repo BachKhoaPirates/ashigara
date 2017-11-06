@@ -1,0 +1,2 @@
+$("#button-vote-review-<%= @review.id %>").replaceWith("<%= j render partial: 'shared/vote_button', locals: { review: @review } %>")
+$("#vote-count-<%= @review.id %>").replaceWith("<%= j render partial: 'shared/vote_count', locals: { review: @review } %>")

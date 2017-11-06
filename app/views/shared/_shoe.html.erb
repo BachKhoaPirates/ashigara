@@ -1,11 +1,17 @@
 <%= link_to shoe_path(shoe) do %>
   <th>
-    <div class="custom-card">
-      <img style="width: 100%; height: 300px;" src=<%= shoe.shoe_images.first.image %>>
+    <div style="height: 450px">
+      <div class="custom-card">
+        <img class="img-fluid" style="width: 235px; height: 170px;" src=<%= shoe.shoe_images.first.image %>>
+      </div>
+      
+      <div style="margin-top: 15px; color: black; font-size: 20px;">
+          <%= link_to shoe.name, shoe_path(shoe), :style => "color: black" %>
+      </div>
+      <div style="font-size: 13px; color: #757575"><%= shoe.brand.name %></div>
+      <div style="font-size: 13px; color: #757575"><%= shoe.category.name %></div>
+      <div style="font-size: 13px; color: #159588"><%= shoe.money_worthy %></div>
     </div>
-    <div style="margin: 20px 20px 0px 20px;" class="text-center"><%= link_to shoe.name, shoe_path(shoe) %></div>
-    
-    <div style="color: red; margin: 0px 20px 20px 20px;" class="text-center"><%= shoe.money_worthy %></div>
   </th>
   <th></th>
 <% end %>

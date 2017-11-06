@@ -1,11 +1,12 @@
-class VotesController < ApplicationController
+class BookmarksController < ApplicationController
   before_action :authenticate_user!
 
+
   def create
-    load_review
+    load_shoe
 
     respond_to do |format|
-      if current_user.add_vote?(params[:review_id])
+      if current_user.add_bookmark?(params[:shoe_id])
         format.js
       else
         format.json { render json: {status: :failed} }
@@ -14,11 +15,15 @@ class VotesController < ApplicationController
 
   end
 
+  def index
+    @bookmarks = current_user.bookmarks
+  end
+
   def destroy
-    load_review
+    load_shoe
 
     respond_to do |format|
-      if current_user.delete_vote?(params[:review_id])
+      if current_user.delete_bookmark?(params[:shoe_id])
         format.js
       else
         format.json { render json: {status: :failed} }
@@ -28,7 +33,8 @@ class VotesController < ApplicationController
 
   private
 
-  def load_review
-    @review = Review.find_by_id(params[:review_id])
+  def load_shoe
+    @shoe = Shoe.find_by_id(params[:shoe_id])
   end
+
 end
