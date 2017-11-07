@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="card-content valign center-block" style="font-size: 30px; margin-top: 30px">
+    <div class="card-content valign center-block" style="font-size: 30px; margin-top: 30px; width: 100%; text-align: center">
       Forgot your password?
     </div>
   </div>
-  <div class="row">
+  <div class="row" style="margin-top: 50px">
     <div class="col s1"></div>
     <div class="col s1">
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= render "shared/devisemes" %>
         <%= f.email_field :email, autofocus: false, class: "form-control", placeholder: "Email Address" %>
         <br>
-        <%= f.submit "Submit", class: "waves-effect waves-light btn", style: "width: 100%; font-size: 13px; border-radius: 50px; box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0, 0, 0, 0.2);" %>
+        <%= f.submit "Submit", class: "waves-effect waves-light btn", style: "background: #009688; color: white; width: 100%; font-size: 13px; border-radius: 50px; box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0, 0, 0, 0.2);" %>
       <% end %>
     </div>
     <div class="col s1"></div>

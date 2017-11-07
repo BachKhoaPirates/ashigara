@@ -16,7 +16,37 @@
           color: black; text-decoration: none;"><%= @shoe.category.name %></a>
           <a href="#" class="d-flex align-items-center" style="height: 40px; border: 1px solid black; padding: 5px 10px 5px 10px; border-radius: 50px; margin-left: 15px; font-size: 15px;
           color: black; text-decoration: none;"><%= @shoe.brand.name %></a href="#">
+          <a href="#" class="d-flex align-items-center" style="height: 40px; border: 1px solid black; padding: 5px 10px 5px 10px; border-radius: 50px; margin-left: 15px; font-size: 15px;
+          color: black; text-decoration: none;"><%= @shoe.water_proof ? 'Water-proof' : 'Non water-proof' %></a href="#">
         </div>
+        <!--<div class="row">-->
+          
+          <!--<div class="col-6" style="margin-top: 30px; font-size: 20px; color: blue">-->
+          <!--  Colour<br>-->
+          <!--  <div class="form-check form-check-inline">-->
+          <!--    <label class="form-check-label">-->
+          <!--      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>-->
+          <!--    </label>-->
+          <!--  </div>-->
+          <!--  <div class="form-check form-check-inline" style="margin-left: 10px">-->
+          <!--    <label class="form-check-label">-->
+          <!--      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">-->
+          <!--    </label>-->
+          <!--  </div>-->
+          <!--  <div class="form-check form-check-inline" style="margin-left: 10px">-->
+          <!--    <label class="form-check-label">-->
+          <!--      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">-->
+          <!--    </label>-->
+          <!--  </div>-->
+          <!--</div>-->
+          
+        <div style="margin-top: 30px; font-size: 20px; color: blue">
+          Size (Recommend)
+        </div>
+        <div style="margin-top: 10px;">
+          <h2><strong>39</strong></h2>
+        </div>  
+        <!--</div>-->
         <div style="margin-top: 30px; font-size: 20px; color: blue">
           Description
         </div>
@@ -30,8 +60,23 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente nesciunt atque nemo neque ut officiis nostrum incidunt maiores, magni optio et sunt suscipit iusto nisi totam quis, nobis mollitia necessitatibus.
         </div>
         <div style="margin-top: 30px; font-size: 20px; color: blue">
+          Shoe size recommend: <span style="color: black"><strong>38</strong></span>
+        </div>
+        <div style="margin-top: 30px; font-size: 20px; color: blue">
           Properties
         </div>
+        <div class="row" style="margin-top: 20px">
+          <div class="col-3">
+              <strong>Overall:</strong>
+          </div>
+          <div class="col-3">
+            <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
+              <%= @shoe.overall %>
+              <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
+            </span>
+          </div>
+        </div>
+        <hr>
         <div class="row" style="margin-top: 20px">
           <div class="col-3">
               Durability:
@@ -62,16 +107,8 @@
               <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
             </span>
           </div>
-          <div class="col-3">
-              Overall:
-          </div>
-          <div class="col-3">
-            <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-              <%= @shoe.overall %>
-              <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
-            </span>
-          </div>
         </div>
+        <hr>
         <div class="row" style="margin-top: 20px">
           <div class="col-3">
             Money worthy:
@@ -80,14 +117,6 @@
             <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
               <%= @shoe.money_worthy %>
               <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
-            </span>
-          </div>
-          <div class="col-3">
-            Water proof:
-          </div>
-          <div class="col-3">
-            <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-              <%= @shoe.water_proof %>
             </span>
           </div>
         </div>

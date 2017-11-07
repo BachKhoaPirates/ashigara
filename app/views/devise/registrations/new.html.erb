@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="card-content valign center-block" style="font-size: 30px; margin-top: 30px">
+    <div style="font-size: 30px; margin-top: 30px; width: 100%; text-align: center">
       Sign Up
     </div>
   </div>
-  <div class="row">
+  <div class="row" style="margin-top: 50px">
     <div class="col s1"></div>
     <div class="col s1">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -17,20 +17,20 @@
         <br>
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password" %>
         <br>
-        <%= f.submit "Sign Up", class: "waves-effect waves-light btn", style: "width: 100%; font-size: 13px; border-radius: 50px; box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0, 0, 0, 0.2);" %>
+        <%= f.submit "Sign Up", class: "waves-effect waves-light btn", style: "background: #009688; color: white; width: 100%; font-size: 13px; border-radius: 50px; box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0, 0, 0, 0.2);" %>
         <div class="row" style="margin-top: 35px;">
           <div class="col s1">
             <div class="center-block facebook" style="text-align: center; border: 1px solid #3b5998; border-radius: 50px; height: 40px;">
-              <%= link_to "Signup with Facebook", user_facebook_omniauth_authorize_path, style: "line-height: 40px; text-decoration: none; color: #3b5998", class: "facebook-text"   %>
+              <%= link_to "Sign Up with Facebook", user_facebook_omniauth_authorize_path, style: "line-height: 40px; text-decoration: none; color: #3b5998", class: "facebook-text"   %>
             </div>
           </div>
           <div class="col s1" >
             <div class="center-block" style="text-align: center; border: 1px solid #d62d20; border-radius: 50px; height: 40px;">
-              <%= link_to "Signup with Google", user_google_oauth2_omniauth_authorize_path, style: "line-height: 40px; text-decoration: none; color: #d62d20;"%>
+              <%= link_to "Sign Up with Google", user_google_oauth2_omniauth_authorize_path, style: "line-height: 40px; text-decoration: none; color: #d62d20;"%>
             </div>
           </div>
         </div>
-        <div class="row">
+        <div style="width: 100%; text-align: center; margin-top: 30px">
           <%- if controller_name != 'sessions' %>
             <span class="center-block" style="text-align: center; margin-top: 50px;">Already have a account?&nbsp;
               <%= link_to "Sign in now", new_session_path(resource_name) %><br />
