@@ -121,7 +121,8 @@ end
 p "seeding shops"
 1.upto(100) do
   Shop.create! name: Faker::Company.name,
-    address: Faker::Address.street_address
+    address: Faker::Address.street_address,
+    website: Faker::Internet.domain_name
 end
 
 p "seeding shoe shop"
@@ -185,11 +186,11 @@ shoe_images = [
   end
 end
 
-# p "seeding votes"
-# 1.upto(100) do |n|
-#   rand(0..5).times do
-#     Vote.create! user_id: rand(1..100),
-#       review_id: n,
-#       vote_type: [-1, 1].sample
-#   end
-# end
+p "seeding votes"
+1.upto(100) do |n|
+  rand(0..2).times do
+    Vote.create! user_id: rand(1..100),
+      review_id: n,
+      vote_type: 1
+  end
+end
