@@ -59,9 +59,9 @@
         <div style="margin-top: 10px;">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente nesciunt atque nemo neque ut officiis nostrum incidunt maiores, magni optio et sunt suscipit iusto nisi totam quis, nobis mollitia necessitatibus.
         </div>
-        <div style="margin-top: 30px; font-size: 20px; color: blue">
-          Shoe size recommend: <span style="color: black"><strong>38</strong></span>
-        </div>
+        <!--<div style="margin-top: 30px; font-size: 20px; color: blue">-->
+        <!--  Shoe size recommend: <span style="color: black"><strong>38</strong></span>-->
+        <!--</div>-->
         <div style="margin-top: 30px; font-size: 20px; color: blue">
           Properties
         </div>
@@ -176,7 +176,6 @@
             </div>
           </div>
       </div>
-    <hr>
 
     <!-- Recommend Shoe -->
     <div class="row">
@@ -189,21 +188,7 @@
       <% end %>
     </div>
     
-    <div class="row justify-content-md-center">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-body">
-            <div class="card-title text-center">
-              <h3>Create review</h3>
-            </div>
-            <hr>
-            <div class="card-text">
-              <%= render partial: 'reviews/form_create', locals: { shoe: @shoe } %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render partial: 'reviews/form_create', locals: { shoe: @shoe } %>
 
   <% end %>
 
