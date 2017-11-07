@@ -198,49 +198,7 @@
             </div>
             <hr>
             <div class="card-text">
-              <%= form_for [@shoe, @shoe.reviews.new] do |f| %>
-                <div class="row">
-                  <div class="col-3">
-                    Content
-                  </div>
-                  <div class="col-9">
-                    <%= f.text_field :content, required: true %>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-3">
-                    durability
-                  </div>
-                  <div class="col-9">
-                    <%= f.text_field :durability, required: true %>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-3">
-                      comfortability
-                  </div>
-                  <div class="col-9">
-                    <%= f.text_field :comfortability, required: true %>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-3">
-                      ventilation
-                  </div>
-                  <div class="col-9">
-                    <%= f.text_field :ventilation, required: true %>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-3">
-                      money_worthy
-                  </div>
-                  <div class="col-9">
-                    <%= f.text_field :money_worthy, required: true %>
-                  </div>
-                </div>
-                <%= f.submit "Submit", class: "btn btn-primary pull-right"%>
-              <% end %>
+              <%= render partial: 'reviews/form_create', locals: { shoe: @shoe } %>
             </div>
           </div>
         </div>
@@ -249,5 +207,4 @@
 
   <% end %>
 
-  <%= render partial: 'reviews/form_create', locals: { shoe: @shoe } %>
 </div>

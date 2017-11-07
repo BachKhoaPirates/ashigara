@@ -1,15 +1,43 @@
 <%= form_for [@shoe, @shoe.reviews.new] do |f| %>
-  <div id="durability">Durability: </div>
-  <div id="comfortability">Comfortability: </div>
-  <div id="ventilation">Ventilation: </div>
-  <div id="money_worthy">Money_worthy: </div>
+  <div class='row'>
+    <div class='col-6'>
+      
+      <div class="row">
+        <div class='col-4'>
+          Durability: 
+        </div>
+        <div id="durability"></div>
+      </div>
+      <div class="row" style='margin-top:15px'>
+        <div class='col-4'>
+          Comfortability: 
+        </div>
+        <div id="comfortability"></div>
+      </div>
+      <div class="row" style='margin-top:15px'>
+        <div class='col-4'>
+          Ventilation:
+        </div>
+        <div id="ventilation"></div>
+      </div>
+      <div class="row" style='margin-top:15px'>
+        <div class='col-4'>
+          Money worthy:
+        </div>
+        <div id="money_worthy"></div>
+      </div>
+    </div>
+    
+    <div class='col-6'>
+      <%= f.text_field :content, placeholder: 'Content', class: 'form-control' %>
+    </div>
 
-  <%= f.text_field :content %>
+  </div>
   <%= f.hidden_field :shoe_id, value: @shoe.id %>
   <%= f.hidden_field :user_id, value: current_user.id %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", class: "btn btn-primary pull-right"%>
   </div>
 <% end %>
 
