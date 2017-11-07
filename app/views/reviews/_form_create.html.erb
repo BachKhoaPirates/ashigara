@@ -1,0 +1,17 @@
+<%= form_for [@shoe, @shoe.reviews.new] do |f| %>
+  <div id="user_stars"></div>
+
+  <%= f.text_field :content %>
+  <%= f.hidden_field :shoe_id, value: @shoe.id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script>
+  $('#user_stars').raty({
+    path: '/assets',
+    scoreName: 'review[star]',
+    score: 1
+  });
+</script>
