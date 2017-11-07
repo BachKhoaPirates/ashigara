@@ -12,9 +12,9 @@
     </div>
   </div>
   
-  <div class="col-2 d-flex align-items-center" style="padding-right: 40px; font-size: 13px">
+  <div class="col-2 d-flex align-items-center" style="padding-right: 40px; font-size: 13px; width: 100%;">
     <% if (!user_signed_in?) %>
-    <%= link_to "Login", new_user_session_path, class: "text-babu nav-link", style: "float: right"%>
+    <%= link_to "Sign In", new_user_session_path, class: "text-babu nav-link", style: "float: right"%>
     <%= link_to "Sign Up", new_user_registration_path, class: "text-babu nav-link", style: "float: right" %>
     <% else %>
       <div class="w3-dropdown-hover white">
