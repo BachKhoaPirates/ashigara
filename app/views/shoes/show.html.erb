@@ -149,6 +149,17 @@
       </div>
     <hr>
 
+    <!-- Recommend Shoe -->
+    <div class="row">
+      <% if @recommend_shoe.present? %>
+        Recommend Shoe <%= @recommend_shoe.count %>
+        <br>
+        <% @recommend_shoe.each do |shoe| %>
+          <%= render partial: 'shared/shoe', locals: { shoe: shoe } %>
+        <% end %>
+      <% end %>
+    </div>
+    
     <div class="row justify-content-md-center">
       <div class="col-12">
         <div class="card">
