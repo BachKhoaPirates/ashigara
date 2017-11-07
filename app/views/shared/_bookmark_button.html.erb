@@ -1,0 +1,16 @@
+<% if current_user.has_bookmark?(shoe.id)%>
+  <%= link_to  shoe_bookmark_path(shoe_id: shoe.id, id: 0),
+    remote: true,
+    method: 'delete',
+    id: "button-bookmark-shoe-#{shoe.id}" do %>
+    <i class="fa fa-bookmark pull-right awesome-font" aria-hidden="true"></i>
+  <% end %>
+<% else %>
+  <%= link_to shoe_bookmarks_path(shoe_id: shoe.id),
+    remote: true,
+    method: 'post',
+    id: "button-bookmark-shoe-#{shoe.id}" do %>
+
+    <i class="fa fa-bookmark-o pull-right awesome-font" aria-hidden="true"></i>
+  <% end %>
+<% end %>
