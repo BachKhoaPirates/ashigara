@@ -1,5 +1,5 @@
 <li id="review-<%= @review.id %>">
-  <%= image_tag @review.shoe.shoe_images.first.image, height: '110', width: '110', class:"user_reviews_image rounded-circle" %>
+  <%= image_tag @review.shoe.shoe_images.first.image, height: '100', width: '100', class:"user_reviews_image rounded-circle" %>
   <span><%= pluralize(@review.votes.sum(:vote_type), 'votes') %></span> <br>
   <span class="user"><%= link_to @review.user.username, @review.user %></span>
   <span>Review about shoe : <%= link_to @review.shoe.name, shoe_path(@review.shoe_id) %>: </span>

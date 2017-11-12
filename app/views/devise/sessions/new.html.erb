@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="card-content valign center-block" style="font-size: 30px; margin-top: 30px">
+    <div style="font-size: 30px; margin-top: 30px; text-align: center; width: 100%">
       Sign In
     </div>
   </div>
-  <div class="row">
+  <div class="row" style="margin-top: 50px">
     <div class="col s1"></div>
     <div class="col s1">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -19,26 +19,28 @@
           <%= f.label :remember_me %>
         <% end -%>
         <br>
-        <%= f.submit "Sign In", class: "waves-effect waves-light btn", style: "width: 100%; font-size: 13px; border-radius: 50px; box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0, 0, 0, 0.2); margin-top: 30px" %>
+        <%= f.submit "Sign In", class: "waves-effect waves-light btn", style: "background: #009688; color: white; width: 100%; font-size: 13px; border-radius: 50px; box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0, 0, 0, 0.2); margin-top: 20px" %>
         <br><br>
-        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-          <%= link_to "Forgot your password?", new_password_path(resource_name), class: "black-text center-block", style: "text-align: center; text-decoration: none;" %><br />
-        <% end -%>
-        <div class="row">
+        <div style="width: 100%; text-align: center; ">
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <%= link_to "Forgot your password?", new_password_path(resource_name), class: "black-text center-block", style: "text-decoration: none;" %><br />
+          <% end -%>
+        </div>
+        <div class="row" style="margin-top: 20px">
           <div class="col s1">
             <div class="center-block facebook" style="text-align: center; border: 1px solid #3b5998; border-radius: 50px; height: 40px;">
-              <%= link_to "Signin with Facebook", user_facebook_omniauth_authorize_path, style: "line-height: 40px; text-decoration: none; color: #3b5998", class: "facebook-text"   %>
+              <%= link_to "Sign In with Facebook", user_facebook_omniauth_authorize_path, style: "line-height: 40px; text-decoration: none; color: #3b5998", class: "facebook-text"   %>
             </div>
           </div>
           <div class="col s1" >
             <div class="center-block" style="text-align: center; border: 1px solid #d62d20; border-radius: 50px; height: 40px;">
-              <%= link_to "Signin with Google", user_google_oauth2_omniauth_authorize_path, style: "line-height: 40px; text-decoration: none; color: #d62d20;"%>
+              <%= link_to "Sign In with Google", user_google_oauth2_omniauth_authorize_path, style: "line-height: 40px; text-decoration: none; color: #d62d20;"%>
             </div>
           </div>
         </div>
-        <div class="row">
+        <div style="width: 100%; text-align: center; margin-top: 30px">
           <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-            <span class="center-block" style="text-align: center; margin-top: 50px;">Don't have an account?&nbsp;
+            <span class="center-block" style="margin-top: 50px;">Don't have an account?&nbsp;
               <%= link_to "Sign up here", new_registration_path(resource_name) %>
             </span>
           <% end -%>

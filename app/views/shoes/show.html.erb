@@ -16,7 +16,37 @@
           color: black; text-decoration: none;"><%= @shoe.category.name %></a>
           <a href="#" class="d-flex align-items-center" style="height: 40px; border: 1px solid black; padding: 5px 10px 5px 10px; border-radius: 50px; margin-left: 15px; font-size: 15px;
           color: black; text-decoration: none;"><%= @shoe.brand.name %></a href="#">
+          <a href="#" class="d-flex align-items-center" style="height: 40px; border: 1px solid black; padding: 5px 10px 5px 10px; border-radius: 50px; margin-left: 15px; font-size: 15px;
+          color: black; text-decoration: none;"><%= @shoe.water_proof ? 'Water-proof' : 'Non water-proof' %></a href="#">
         </div>
+        <!--<div class="row">-->
+
+          <!--<div class="col-6" style="margin-top: 30px; font-size: 20px; color: blue">-->
+          <!--  Colour<br>-->
+          <!--  <div class="form-check form-check-inline">-->
+          <!--    <label class="form-check-label">-->
+          <!--      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>-->
+          <!--    </label>-->
+          <!--  </div>-->
+          <!--  <div class="form-check form-check-inline" style="margin-left: 10px">-->
+          <!--    <label class="form-check-label">-->
+          <!--      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">-->
+          <!--    </label>-->
+          <!--  </div>-->
+          <!--  <div class="form-check form-check-inline" style="margin-left: 10px">-->
+          <!--    <label class="form-check-label">-->
+          <!--      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">-->
+          <!--    </label>-->
+          <!--  </div>-->
+          <!--</div>-->
+
+        <div style="margin-top: 30px; font-size: 20px; color: blue">
+          Size (Recommend)
+        </div>
+        <div style="margin-top: 10px;">
+          <h2><strong>39</strong></h2>
+        </div>
+        <!--</div>-->
         <div style="margin-top: 30px; font-size: 20px; color: blue">
           Description
         </div>
@@ -29,16 +59,31 @@
         <div style="margin-top: 10px;">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente nesciunt atque nemo neque ut officiis nostrum incidunt maiores, magni optio et sunt suscipit iusto nisi totam quis, nobis mollitia necessitatibus.
         </div>
+        <!--<div style="margin-top: 30px; font-size: 20px; color: blue">-->
+        <!--  Shoe size recommend: <span style="color: black"><strong>38</strong></span>-->
+        <!--</div>-->
         <div style="margin-top: 30px; font-size: 20px; color: blue">
           Properties
         </div>
+        <div class="row" style="margin-top: 20px">
+          <div class="col-3">
+              <strong>Overall:</strong>
+          </div>
+          <div class="col-3">
+            <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
+              <%= @shoe.overall %>
+              <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
+            </span>
+          </div>
+        </div>
+        <hr>
         <div class="row" style="margin-top: 20px">
           <div class="col-3">
               Durability:
           </div>
           <div class="col-3">
             <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-              <%= @shoe.durability %> 
+              <%= @shoe.durability %>
               <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
             </span>
           </div>
@@ -47,7 +92,7 @@
           </div>
           <div class="col-3">
             <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-              <%= @shoe.comfortability %> 
+              <%= @shoe.comfortability %>
               <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
             </span>
           </div>
@@ -62,16 +107,8 @@
               <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
             </span>
           </div>
-          <div class="col-3">
-              Overall:
-          </div>
-          <div class="col-3">
-            <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-              <%= @shoe.overall %>
-              <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
-            </span>
-          </div>
         </div>
+        <hr>
         <div class="row" style="margin-top: 20px">
           <div class="col-3">
             Money worthy:
@@ -80,14 +117,6 @@
             <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
               <%= @shoe.money_worthy %>
               <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
-            </span>
-          </div>
-          <div class="col-3">
-            Water proof:
-          </div>
-          <div class="col-3">
-            <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-              <%= @shoe.water_proof %>
             </span>
           </div>
         </div>
@@ -113,8 +142,9 @@
           </div>
           <div class="modal-body">
             <% @shoe_shops.each do |shop| %>
-              <div class="row"><b><%= shop.shop.name %></b></div>
-              <div class="row">Address: <%= shop.shop.address %></div>
+              <div><b><%= shop.shop.name %></b></div>
+              <div>Address: <%= shop.shop.address %></div>
+              <div>Website: &nbsp;<%= link_to shop.shop.website %></div>
               <% if shop != @shoe_shops.last %>
                 <hr>
               <% end %>
@@ -146,65 +176,42 @@
             </div>
           </div>
       </div>
-    <hr>
-    
-    <div class="row justify-content-md-center">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-body">
-            <div class="card-title text-center">
-              <h3>Create review</h3>
-            </div>
-            <hr>
-            <div class="card-text">
-              <%= form_for [@shoe, @shoe.reviews.new] do |f| %>
-                <div class="row">
-                  <div class="col-3">
-                    Content
-                  </div>
-                  <div class="col-9">
-                    <%= f.text_field :content, required: true %>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-3">
-                    durability
-                  </div>
-                  <div class="col-9">
-                    <%= f.text_field :durability, required: true %>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-3">
-                      comfortability
-                  </div>
-                  <div class="col-9">
-                    <%= f.text_field :comfortability, required: true %>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-3">
-                      ventilation
-                  </div>
-                  <div class="col-9">
-                    <%= f.text_field :ventilation, required: true %>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-3">
-                      money_worthy
-                  </div>
-                  <div class="col-9">
-                    <%= f.text_field :money_worthy, required: true %>
-                  </div>
-                </div>
-                <%= f.submit "Submit", class: "btn btn-primary pull-right"%>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
+
+    <!-- Recommend Shoe -->
+    <div class="row">
+      <% if @recommend_shoe.present? %>
+        <h5>Recommend Shoe <%= @recommend_shoe.count %></h5>
+        <br>
+        <% @recommend_shoe.each do |shoe| %>
+          <%= render partial: 'shared/shoe', locals: { shoe: shoe } %>
+        <% end %>
+      <% end %>
     </div>
+
+
+    <!-- Input shoe -->
+    <div class="row">
+      <h5>Search</h5>
+      <%= form_tag(shoe_path, :method => "get") do %>
+        <%= text_field_tag :foot_length, params[:foot_length], placeholder: "foot length" %>
+        <%= text_field_tag :foot_width, params[:foot_width], placeholder: "foot width" %>
+        <%= submit_tag "Search" %>
+      <% end %>
+    </div>
+
+    <!-- Searched shoe -->
+    <div class="row">
+      <% if @searched_shoe.present? %>
+        <h5>Searched Shoes <%= @searched_shoe.count %></h5>
+        <br>
+        <% @searched_shoe.each do |shoe| %>
+          <%= render partial: 'shared/shoe', locals: { shoe: shoe } %>
+        <% end %>
+      <% end %>
+    </div>
+
+
+    <%= render partial: 'reviews/form_create', locals: { shoe: @shoe } %>
 
   <% end %>
 

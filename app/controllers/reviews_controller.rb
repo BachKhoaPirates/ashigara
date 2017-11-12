@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
   def create
     @shoe = Shoe.find_by id: params[:shoe_id]
     @review = @shoe.reviews.new review_params
+    @review.vote_count = 0
     @review.user = current_user
     if @review.save
       redirect_to @review.shoe
@@ -45,7 +46,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:content, :durability, :comfortability, :ventilation, :money_worthy, :vote_count,
+    params.require(:review).permit(:content, :durability, :comfortability, :ventilation, :money_worthy, 
       :shoe_id, :user_id)
   end
 
