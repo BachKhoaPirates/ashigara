@@ -17,28 +17,19 @@
     <%= link_to "Sign In", new_user_session_path, class: "text-babu nav-link", style: "float: right"%>
     <%= link_to "Sign Up", new_user_registration_path, class: "text-babu nav-link", style: "float: right" %>
     <% else %>
-      <div class="w3-dropdown-hover white">
-        <img style="width: 40px; height: 40px;" src="<%= get_avatar current_user %>" class="rounded-circle" onclick="myFunction()"/>
-
-        <div class="w3-dropdown-content" id="setting" style="margin-top: 10px;">
-          <%= link_to "プロフィール", user_path(current_user), class: "w3-bar-item black-text", style: "text-decoration: none;"%>
-          <br>
-          <%= link_to "プロファイル編集", edit_user_registration_path, class: "w3-bar-item black-text", style: "text-decoration: none;" %>
-          <div class="dropdown-divider"></div>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "w3-bar-item black-text", style: "text-decoration: none;" %>
-        </div>
+    <div class="dropdown">
+      <img style="width: 40px; height: 40px;" src="<%= get_avatar current_user %>" id="dropdownMenuButton" class="dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="dropdown-menu">
+        <%= link_to "プロフィール", user_path(current_user), class: "dropdown-item", style: "text-decoration: none;"%>
+        <%= link_to "プロファイル編集", edit_user_registration_path, class: "dropdown-item", style: "text-decoration: none;" %>
+        <div class="dropdown-divider"></div>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item", style: "text-decoration: none;" %>
       </div>
+    </div>
     <% end %>
   </div>
 </div>
 
 <script>
-function myFunction() {
-    var x = document.getElementById("setting");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
+  $('.dropdown-toggle').dropdown()
 </script>
