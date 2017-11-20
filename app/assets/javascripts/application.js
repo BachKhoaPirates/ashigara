@@ -11,8 +11,24 @@
 // about supported directives.
 //
 //= require jquery3
+//= require jquery_ujs
+//= require turbolinks
 //= require popper
 //= require bootstrap-sprockets
-//= require_tree .
-//= require jquery_ujs
 //= require toastr
+//= require typeahead.bundle
+//= require_tree .
+
+$(document).on('turbolinks:load', function(){
+  var shoes = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.whitespace,
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    remote: {
+      url: '/shoes/autocomplete?query=%QUERY',
+      wildcard: '%QUERY'
+    }
+  });
+  $('#shoes_search').typeahead(null, {
+    source: shoes
+  });
+})

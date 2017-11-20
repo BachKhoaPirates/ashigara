@@ -5,4 +5,6 @@ class Shoe < ApplicationRecord
   has_many :reviews
   has_many :shoe_shops
   has_many :sizes
+
+  searchkick
 end

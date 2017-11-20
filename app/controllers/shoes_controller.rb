@@ -32,6 +32,15 @@ class ShoesController < ApplicationController
     end
   end
 
+  def autocomplete
+    render json: Shoe.search(params[:query], {
+      fields: ["name"],
+      limit: 10,
+      load: false,
+      misspellings: {below: 5}
+    }).map(&:name)
+  end
+
   private
 
   def load_shoe
