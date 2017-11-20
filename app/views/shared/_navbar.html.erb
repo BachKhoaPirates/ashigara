@@ -2,16 +2,26 @@
   <div class="col-2">
     <%= link_to "足柄", root_path, class:"custom-nav-brand" %>
   </div>
-  
-  <div class="col-8 d-flex justify-content-start align-items-center">
-    <div class="row custom-nav-main">
-      <input type="text" class="form-control custom-nav-search rounded-left" placeholder="Search">
-      <div class="custom-nav_search-icon-main d-flex align-items-center">
-        <%= image_tag("ic_search_black.png", :class => 'custom-nav_search-icon')%>
+
+  <div class="col-8 d-flex justify-content-start align-items-center search-bar">
+    <%= form_tag 'search', method: :get do %>
+      <div class="row custom-nav-main">
+        <!-- <input type="text" class="form-control custom-nav-search rounded-left" placeholder="Search"> -->
+        <%= text_field_tag :term,
+          params[:term],
+          id: 'shoes_search',
+          autocomplete: :off,
+          placeholder: "Search",
+          class: "form-control custom-nav-search rounded-left" %>
+        <div class="custom-nav_search-icon-main d-flex align-items-center">
+          <%= button_tag do %>
+            <%= image_tag("ic_search_black.png", :class => 'custom-nav_search-icon')%>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
-  
+
   <div class="col-2 d-flex align-items-center" style="padding-right: 40px; font-size: 13px; width: 100%;">
     <% if (!user_signed_in?) %>
     <%= link_to "Sign In", new_user_session_path, class: "text-babu nav-link", style: "float: right"%>

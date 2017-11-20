@@ -6,16 +6,16 @@
 <%= form_for [@shoe, @shoe.reviews.new] do |f| %>
   <div class='row'>
     <div class='col-5'>
-      
+
       <div class="row">
         <div class='col-4'>
-          Durability: 
+          Durability:
         </div>
         <div id="durability"></div>
       </div>
       <div class="row" style='margin-top:15px'>
         <div class='col-4'>
-          Comfortability: 
+          Comfortability:
         </div>
         <div id="comfortability"></div>
       </div>
@@ -32,7 +32,7 @@
         <div id="money_worthy"></div>
       </div>
     </div>
-    
+
     <div class='col-7'>
       <%= f.text_field :content, placeholder: 'Content', class: 'form-control', style: "height: 100px;" %>
     </div>
@@ -50,6 +50,10 @@
 <script>
   $('#durability').raty({
     path: '/assets',
+    <% path = image_url('star-on.png') %>
+    starOn: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
+    <% path = image_url('star-off.png') %>
+    starOff: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
     scoreName: 'review[durability]',
     score: 1
   });
@@ -58,6 +62,10 @@
 <script>
   $('#comfortability').raty({
     path: '/assets',
+    <% path = image_url('star-on.png') %>
+    starOn: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
+    <% path = image_url('star-off.png') %>
+    starOff: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
     scoreName: 'review[comfortability]',
     score: 1
   });
@@ -67,6 +75,10 @@
 <script>
   $('#ventilation').raty({
     path: '/assets',
+    <% path = image_url('star-on.png') %>
+    starOn: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
+    <% path = image_url('star-off.png') %>
+    starOff: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
     scoreName: 'review[ventilation]',
     score: 1
   });
@@ -75,8 +87,11 @@
 <script>
   $('#money_worthy').raty({
     path: '/assets',
+    <% path = image_url('star-on.png') %>
+    starOn: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
+    <% path = image_url('star-off.png') %>
+    starOff: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
     scoreName: 'review[money_worthy]',
     score: 1
   });
 </script>
-
