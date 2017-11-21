@@ -38,8 +38,11 @@
     <%= f.hidden_field :shoe_id, value: @review.shoe.id %>
     <%= f.hidden_field :user_id, value: current_user.id %>
 
+    <div>
+      <%= f.submit "Cancel", class: "btn btn-primary pull-right"%>
+    </div>
     <div class="actions">
-      <%= f.submit "Submit", class: "btn btn-primary pull-right"%>
+      <%= f.submit "Submit", class: "btn btn-primary pull-right", style: "margin-right:50px"%>
     </div>
   <% end %>
   </div>

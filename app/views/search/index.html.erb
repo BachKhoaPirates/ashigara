@@ -1,3 +1,14 @@
-<% @search_result.each do |shoe| %>
-  <%= render partial: 'shared/search_shoe', locals: { shoe: shoe } %>
-<% end %>
+<table style="margin-top: 50px">
+  <col width="23.5%">
+  <col width="2%">
+  <col width="23.5%">
+  <col width="2%">
+  <col width="23.5%">
+  <col width="2%">
+  <col width="23.5%">
+  <tr>
+    <% @search_result.first(4).each do |shoe| %>
+      <%= render partial: 'shared/search_shoe', locals: { shoe: shoe } %>
+    <% end %>
+  </tr>
+</table>
