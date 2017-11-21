@@ -1,101 +1,100 @@
-<div class="row" id="review-<%= review.id %>">
- <div class="col-6">
-     <div class="row d-flex align-items-center">
-       <%= link_to gravatar_for(review.user, size: 30), review.user %>
-       <% if review.user.username != nil %>
-         <span class="user d-flex align-items-center" style="font-size: 20px; margin-left: 30px"><%= link_to review.user.username, review.user, style: "text-decoration: none; color: black; " %></span>
-       <% else %>
-         <span class="user d-flex align-items-center" style="font-size: 20px; margin-left: 30px"><%= link_to review.user.email, review.user, style: "text-decoration: none; color: black; " %></span>
-       <% end %>
-    </div>
-    <div class="row" style="margin-top: 25px">
-        <span class="content"><%= review.content %></span>
-    </div>
-    <div class="row" style="margin-top: 10px">
-      
-        <%= render partial: 'shared/vote_count', locals: { review: review } %>
-        |
-        <span class="timestamp" style="margin-left: 10px; margin-right: 10px;">
-          Posted <%= time_ago_in_words(review.created_at) %> ago
+<div id="review-<%= review.id %>">
+  <div class="row" id="review-<%= review.id %>">
+   <div class="col-6">
+       <div class="row d-flex align-items-center">
+         <%= link_to gravatar_for(review.user, size: 30), review.user %>
+         <% if review.user.username != nil %>
+           <span class="user d-flex align-items-center" style="font-size: 20px; margin-left: 30px"><%= link_to review.user.username, review.user, style: "text-decoration: none; color: black; " %></span>
+         <% else %>
+           <span class="user d-flex align-items-center" style="font-size: 20px; margin-left: 30px"><%= link_to review.user.email, review.user, style: "text-decoration: none; color: black; " %></span>
+         <% end %>
+      </div>
+      <div class="row" style="margin-top: 25px">
+          <span class="content"><%= review.content %></span>
+      </div>
+      <div class="row" style="margin-top: 10px">
+        
+          <%= render partial: 'shared/vote_count', locals: { review: review } %>
+          |
+          <span class="timestamp" style="margin-left: 10px; margin-right: 10px;">
+            Posted <%= time_ago_in_words(review.created_at) %> ago
+          </span>
+          |
+          <span style="margin-left: 10px;">
+            <%= render partial: 'shared/vote_button', locals: { review: review } %>
+          </span>
+      </div>
+   </div>
+
+  <div class="col-6">
+    <div class="row">
+      <div class="col-4">
+        <strong>Overall:</strong>
+      </div>
+      <div class="col-8">
+        <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
+          <%= ((review.durability + review.comfortability + review.ventilation) / 3.to_f).round(2) %>  
+          <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
         </span>
-        |
-        <span style="margin-left: 10px;">
-          <%= render partial: 'shared/vote_button', locals: { review: review } %>
-        </span>
-    </div>
- </div>
-
-<div class="col-6">
-  <div class="row">
-    <div class="col-4">
-      <strong>Overall:</strong>
-    </div>
-    <div class="col-8">
-      <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-        <%= ((review.durability + review.comfortability + review.ventilation) / 3.to_f).round(2) %>  
-        <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
-      </span>
-    </div>
-  </div>
-
-  <div class="row" style="margin-top: 30px">
-    <div class="col-4">
-      Durability:
-    </div>
-    <div class="col-2">
-      <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-        <%= review.durability %> 
-        <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
-      </span>
-    </div>
-    <div class="col-4">
-      Comfortability:
-    </div>
-    <div class="col-2">
-      <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-        <%= review.comfortability %> 
-        <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
-      </span>
-    </div>
-  </div>
-      
-  <div class="row" style="margin-top: 20px">
-    <div class="col-4">
-        Ventilation:
-    </div>
-    <div class="col-2">
-      <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-        <%= review.ventilation %> 
-        <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
-      </span>
-    </div>
-    <div class="col-4">
-        Money worthy:
-    </div>
-    <div class="col-2">
-      <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-        <%= review.money_worthy %> 
-        <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
-      </span>
-    </div>
-  </div>
-  
-  <!--<div class="row" style="margin-top: 30px">-->
-    
-  <!--</div>-->
-  
- </div>
- 
-</div>
-
-<% if review.user == current_user  %>
-  <div class='row'>
-    <div class='col-12'>
-      <div class='pull-right'>
-        <%= link_to "edit", edit_shoe_review_path(shoe_id: review.shoe_id, id: review.id)%>
-        |
-        <%= link_to "delete", shoe_review_path(shoe_id: review.shoe_id, id: review.id), method: :delete%>
       </div>
     </div>
+
+    <div class="row" style="margin-top: 30px">
+      <div class="col-4">
+        Durability:
+      </div>
+      <div class="col-2">
+        <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
+          <%= review.durability %> 
+          <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
+        </span>
+      </div>
+      <div class="col-4">
+        Comfortability:
+      </div>
+      <div class="col-2">
+        <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
+          <%= review.comfortability %> 
+          <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
+        </span>
+      </div>
+    </div>
+        
+    <div class="row" style="margin-top: 20px">
+      <div class="col-4">
+          Ventilation:
+      </div>
+      <div class="col-2">
+        <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
+          <%= review.ventilation %> 
+          <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
+        </span>
+      </div>
+      <div class="col-4">
+          Money worthy:
+      </div>
+      <div class="col-2">
+        <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
+          <%= review.money_worthy %> 
+          <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
+        </span>
+      </div>
+    </div>
+    
+    
+   </div>
+   
   </div>
-<% end %>
+
+  <% if review.user == current_user  %>
+    <div class='row'>
+      <div class='col-12'>
+        <div class='pull-right'>
+          <%= link_to "edit", edit_shoe_review_path(shoe_id: review.shoe_id, review_id: review.id),  remote: true %>
+          |
+          <%= link_to "delete", shoe_review_path(shoe_id: review.shoe_id, id: review.id), method: :delete%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

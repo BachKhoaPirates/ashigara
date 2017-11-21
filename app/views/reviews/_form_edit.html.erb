@@ -1,0 +1,95 @@
+<div id="form-edit-review-<%= @review.id %>">
+  <div style="margin-top: 30px; margin-bottom: 100px">
+  <%= form_for [@review.shoe, @review] do |f| %>
+    <div class='row'>
+      <div class='col-5'>
+
+        <div class="row">
+          <div class='col-4'>
+            Durability:
+          </div>
+          <div id="durability"></div>
+        </div>
+        <div class="row" style='margin-top:15px'>
+          <div class='col-4'>
+            Comfortability:
+          </div>
+          <div id="comfortability"></div>
+        </div>
+        <div class="row" style='margin-top:15px'>
+          <div class='col-4'>
+            Ventilation:
+          </div>
+          <div id="ventilation"></div>
+        </div>
+        <div class="row" style='margin-top:15px'>
+          <div class='col-4'>
+            Money worthy:
+          </div>
+          <div id="money_worthy"></div>
+        </div>
+      </div>
+
+      <div class='col-7'>
+        <%= f.text_area :content, placeholder: 'Content', class: 'form-control', style: "height: 100px;" %>
+      </div>
+
+    </div>
+    <%= f.hidden_field :shoe_id, value: @review.shoe.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
+    <div class="actions">
+      <%= f.submit "Submit", class: "btn btn-primary pull-right"%>
+    </div>
+  <% end %>
+  </div>
+
+  <script>
+    $('#durability').raty({
+      path: '/assets',
+      <% path = image_url('star-on.png') %>
+      starOn: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
+      <% path = image_url('star-off.png') %>
+      starOff: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
+      scoreName: 'review[durability]',
+      score: <%= @review.durability %>
+    });
+  </script>
+
+  <script>
+    $('#comfortability').raty({
+      path: '/assets',
+      <% path = image_url('star-on.png') %>
+      starOn: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
+      <% path = image_url('star-off.png') %>
+      starOff: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
+      scoreName: 'review[comfortability]',
+      score: <%= @review.comfortability %>
+    });
+  </script>
+
+
+  <script>
+    $('#ventilation').raty({
+      path: '/assets',
+      <% path = image_url('star-on.png') %>
+      starOn: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
+      <% path = image_url('star-off.png') %>
+      starOff: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
+      scoreName: 'review[ventilation]',
+      score: <%= @review.ventilation %>
+    });
+  </script>
+
+  <script>
+    $('#money_worthy').raty({
+      path: '/assets',
+      <% path = image_url('star-on.png') %>
+      starOn: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
+      <% path = image_url('star-off.png') %>
+      starOff: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
+      scoreName: 'review[money_worthy]',
+      score: <%= @review.money_worthy %>
+    });
+  </script>
+</div>
