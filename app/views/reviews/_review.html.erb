@@ -14,6 +14,7 @@
       </div>
       <div class="row" style="margin-top: 10px">
         
+
           <%= render partial: 'shared/vote_count', locals: { review: review } %>
           |
           <span class="timestamp" style="margin-left: 10px; margin-right: 10px;">
@@ -33,7 +34,7 @@
       </div>
       <div class="col-8">
         <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-          <%= ((review.durability + review.comfortability + review.ventilation) / 3.to_f).round(2) %>  
+          <%= ((review.durability + review.comfortability + review.ventilation) / 3.to_f).round(2) %>
           <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
         </span>
       </div>
@@ -45,7 +46,7 @@
       </div>
       <div class="col-2">
         <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-          <%= review.durability %> 
+          <%= review.durability %>
           <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
         </span>
       </div>
@@ -54,19 +55,19 @@
       </div>
       <div class="col-2">
         <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-          <%= review.comfortability %> 
+          <%= review.comfortability %>
           <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
         </span>
       </div>
     </div>
-        
+
     <div class="row" style="margin-top: 20px">
       <div class="col-4">
           Ventilation:
       </div>
       <div class="col-2">
         <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-          <%= review.ventilation %> 
+          <%= review.ventilation %>
           <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
         </span>
       </div>
@@ -75,15 +76,15 @@
       </div>
       <div class="col-2">
         <span style="border: 1px solid #159588; border-radius: 2px; padding: 5px 7px 5px 7px">
-          <%= review.money_worthy %> 
+          <%= review.money_worthy %>
           <%= image_tag("star.png", :style => 'width: 13px; height: 13px; margin-bottom: 2px')%>
         </span>
       </div>
     </div>
-    
-    
+
+
    </div>
-   
+
   </div>
 
   <% if review.user == current_user  %>

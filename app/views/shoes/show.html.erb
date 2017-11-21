@@ -7,7 +7,10 @@
       <div class="col-6">
         <h1>
           <strong>
-            <%= @shoe.name %> <%= render partial: 'shared/bookmark_button', locals: { shoe: @shoe } %>
+            <%= @shoe.name %>
+            <% if user_signed_in? %>
+              <%= render partial: 'shared/bookmark_button', locals: { shoe: @shoe } %>
+            <% end %>
           </strong>
         </h1>
         <div class="row d-flex align-items-center" style="margin-left: 5px">
@@ -40,25 +43,28 @@
           <!--  </div>-->
           <!--</div>-->
 
-        <div style="margin-top: 30px; font-size: 20px; color: blue">
-          Size (Recommend for you)
-        </div>
-        <div style="margin-top: 10px;">
-          <h2><strong><%= @fitted_size.size %></strong></h2>
-        </div>
-        <div style="margin-top: 30px; font-size: 20px; color: blue">
-          Search size
-        </div>
-        <div style="margin-top: 10px;">
-          <%= form_tag(shoe_path, :method => "get") do %>
-            <%= text_field_tag :foot_length, params[:foot_length], placeholder: "Foot length", class: "form-control", style: "display: inline; width: auto" %>
-            <%= text_field_tag :foot_width, params[:foot_width], placeholder: "Foot width", class: "form-control", style: "display: inline; width: auto" %>
-            <%= submit_tag "Search", class: "waves-effect waves-light btn", style: "background: #009688; color: white; width: auto; display: inline, margin-left: 10px; font-size: 13px; border-radius: 50px; box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0, 0, 0, 0.2);" %>
-          <% end %>
-          <% if @searched_fit_size.present? %>
-            <strong>Suggest size based on your input: <%= @searched_fit_size.size %></strong>
-          <% end %>
-        </div>
+        <% if user_signed_in? %>
+          <div style="margin-top: 30px; font-size: 20px; color: blue">
+            Size (Recommend for you)
+          </div>
+          <div style="margin-top: 10px;">
+            <h2><strong><%= @fitted_size.size %></strong></h2>
+          </div>
+          <div style="margin-top: 30px; font-size: 20px; color: blue">
+            Search size
+          </div>
+          <div style="margin-top: 10px;">
+            <%= form_tag(shoe_path, :method => "get") do %>
+              <%= text_field_tag :foot_length, params[:foot_length], placeholder: "Foot length", class: "form-control", style: "display: inline; width: auto" %>
+              <%= text_field_tag :foot_width, params[:foot_width], placeholder: "Foot width", class: "form-control", style: "display: inline; width: auto" %>
+              <%= submit_tag "Search", class: "waves-effect waves-light btn", style: "background: #009688; color: white; width: auto; display: inline, margin-left: 10px; font-size: 13px; border-radius: 50px; box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0, 0, 0, 0.2);" %>
+            <% end %>
+            <% if @searched_fit_size.present? %>
+              <strong>Suggest size based on your input: <%= @searched_fit_size.size %></strong>
+            <% end %>
+          </div>
+        <% end  %>
+
         <div style="margin-top: 30px; font-size: 20px; color: blue">
           Description
         </div>
@@ -214,9 +220,9 @@
       <% end %>
     </div> -->
 
-
-    <%= render partial: 'reviews/form_create', locals: { shoe: @shoe } %>
-
+    <% if user_signed_in? %>
+      <%= render partial: 'reviews/form_create', locals: { shoe: @shoe } %>
+    <% end %>
   <% end %>
 
 </div>
