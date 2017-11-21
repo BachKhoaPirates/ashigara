@@ -1,5 +1,4 @@
 <%= link_to shoe_path(shoe) do %>
-  <th>
     <div style="height: 450px">
       <div class="custom-card">
         <img class="img-fluid" style="width: 235px; height: 170px;" src=<%= shoe.shoe_images.first.image %>>
@@ -12,6 +11,4 @@
       <div style="font-size: 13px; color: #757575"><%= shoe.category.name %></div>
       <div style="font-size: 13px; color: #159588"><%= shoe.money_worthy %></div>
     </div>
-  </th>
-  <th></th>
 <% end %>

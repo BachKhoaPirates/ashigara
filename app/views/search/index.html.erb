@@ -1,20 +1,3 @@
-<% @search_result.each do |result| %>
-  <%= link_to result.name, shoe_path(result) %>
-  <br>
-  <%= image_tag(result.shoe_images.first.image, height:'100', width:'100') %>
-  <br>
-  <%= result.durability %>
-  <br>
-  <%= result.ventilation %>
-  <br>
-  <%= result.overall %>
-  <br>
-  <%= result.water_proof %>
-  <br>
-  <%= result.money_worthy %>
-  <br>
-  <%= result.category.name %>
-  <br>
-  <%= result.brand.name %>
-  <br>
+<% @search_result.each do |shoe| %>
+  <%= render partial: 'shared/shoe', locals: { shoe: shoe } %>
 <% end %>

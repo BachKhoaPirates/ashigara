@@ -64,9 +64,12 @@
           <col width="2%">
           <col width="23.5%">
           <tr>
+            <th>
             <% @shoes[20...24].each do |shoe| %>
               <%= render partial: 'shared/shoe', locals: { shoe: shoe } %>
             <% end %>
+            </th>
+            <th></th>
           </tr>
         </table>
       </div>
