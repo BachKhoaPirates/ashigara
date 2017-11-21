@@ -1,15 +1,19 @@
-<% if current_user.has_vote?(review.id)%>
-  <%= link_to review_vote_path(review_id: review.id, id: 0),
-    remote: true,
-    method: 'delete',
-    id: "button-vote-review-#{review.id}" do %>
-    <i class="fa fa-heart awesome-font" aria-hidden="true"></i>
+<% if user_signed_in? %>
+  <% if current_user.has_vote?(review.id)%>
+    <%= link_to review_vote_path(review_id: review.id, id: 0),
+      remote: true,
+      method: 'delete',
+      id: "button-vote-review-#{review.id}" do %>
+      <i class="fa fa-heart awesome-font" aria-hidden="true"></i>
+    <% end %>
+  <% else %>
+    <%= link_to review_votes_path(review_id: review.id),
+      remote: true,
+      method: 'post',
+      id: "button-vote-review-#{review.id}" do %>
+      <i class="fa fa-heart-o awesome-font"aria-hidden="true"></i>
+    <% end %>
   <% end %>
 <% else %>
-  <%= link_to review_votes_path(review_id: review.id),
-    remote: true,
-    method: 'post',
-    id: "button-vote-review-#{review.id}" do %>
-    <i class="fa fa-heart-o awesome-font"aria-hidden="true"></i>
-  <% end %>
+  <i class="fa fa-heart-o awesome-font"aria-hidden="true"></i>
 <% end %>
