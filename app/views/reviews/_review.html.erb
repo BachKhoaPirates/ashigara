@@ -13,7 +13,7 @@
           <span class="content"><%= review.content %></span>
       </div>
       <div class="row" style="margin-top: 10px">
-        
+
 
           <%= render partial: 'shared/vote_count', locals: { review: review } %>
           |
@@ -91,15 +91,15 @@
     <div class='row' style='margin-top:20px; margin-right:3px'>
       <div class='col-12'>
         <div class='pull-right'>
-          <button id="edit" class="waves-effect waves-light btn" style="background: #009688; color: white; width: auto; display: inline, margin-left: 10px; font-size: 13px; border-radius: 50px; box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0, 0, 0, 0.2);">edit</button>
+          <button id="edit-<%= review.id %>" class="waves-effect waves-light btn" style="background: #009688; color: white; width: auto; display: inline, margin-left: 10px; font-size: 13px; border-radius: 50px; box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0, 0, 0, 0.2);">edit</button>
           <%= link_to "delete", shoe_review_path(shoe_id: review.shoe_id, id: review.id), method: :delete, class: "waves-effect waves-light btn", style: "background: #009688; color: white; width: auto; display: inline, margin-left: 10px; font-size: 13px; border-radius: 50px; box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0, 0, 0, 0.2);"%>
         </div>
       </div>
     </div>
     <script charset="utf-8">
-      $('#edit').click(function(){
-        $("#review-<%= review.id %>").replaceWith("<%= j render partial: 'reviews/form_edit1', locals: { review: review } %>")
-      })
+      $('#edit-<%= review.id %>').click(function(){
+        $("#review-<%= review.id %>").replaceWith("<%= j render partial: 'reviews/form_edit', locals: { review: review } %>")
+      });
     </script>
   <% end %>
 </div>

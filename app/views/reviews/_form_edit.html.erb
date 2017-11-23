@@ -1,6 +1,6 @@
-<div id="form-edit-review-<%= @review.id %>">
+<div id="form-edit-review-<%= review.id %>">
   <div style="margin-top: 30px; margin-bottom: 100px">
-  <%= form_for [@review.shoe, @review] do |f| %>
+  <%= form_for [review.shoe, review] do |f| %>
     <div class='row'>
       <div class='col-5'>
 
@@ -35,19 +35,24 @@
       </div>
 
     </div>
-    <%= f.hidden_field :shoe_id, value: @review.shoe.id %>
+    <%= f.hidden_field :shoe_id, value: review.shoe.id %>
     <%= f.hidden_field :user_id, value: current_user.id %>
 
-    <div>
-      <%= f.submit "Cancel", class: "btn btn-primary pull-right"%>
-    </div>
+      <button id='cancel-<%= review.id %>' class="btn btn-primary pull-right waves-effect waves-light btn" style= "margin-right:50px, background: #009688; color: white; width: auto; display: inline, margin-left: 10px; font-size: 13px; border-radius: 50px; box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0, 0, 0, 0.2);">
+      Cancel
+      </button>
+
     <div class="actions">
-      <%= f.submit "Submit", class: "btn btn-primary pull-right", style: "margin-right:50px"%>
+      <%= f.submit "Submit", class: "btn btn-primary pull-right waves-effect waves-light btn", style: "margin-right:50px, background: #009688; color: white; width: auto; display: inline, font-size: 13px; border-radius: 50px; box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0, 0, 0, 0.2);"%>
     </div>
   <% end %>
   </div>
 
   <script>
+    $('#cancel-<%= review.id %>').click(function(){
+      $("#form-edit-review-<%= review.id %>").replaceWith("<h1>hihi</h1>")
+    });
+
     $('#durability').raty({
       path: '/assets',
       <% path = image_url('star-on.png') %>
@@ -55,11 +60,9 @@
       <% path = image_url('star-off.png') %>
       starOff: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
       scoreName: 'review[durability]',
-      score: <%= @review.durability %>
+      score: <%= review.durability %>
     });
-  </script>
 
-  <script>
     $('#comfortability').raty({
       path: '/assets',
       <% path = image_url('star-on.png') %>
@@ -67,12 +70,9 @@
       <% path = image_url('star-off.png') %>
       starOff: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
       scoreName: 'review[comfortability]',
-      score: <%= @review.comfortability %>
+      score: <%= review.comfortability %>
     });
-  </script>
 
-
-  <script>
     $('#ventilation').raty({
       path: '/assets',
       <% path = image_url('star-on.png') %>
@@ -80,11 +80,9 @@
       <% path = image_url('star-off.png') %>
       starOff: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
       scoreName: 'review[ventilation]',
-      score: <%= @review.ventilation %>
+      score: <%= review.ventilation %>
     });
-  </script>
 
-  <script>
     $('#money_worthy').raty({
       path: '/assets',
       <% path = image_url('star-on.png') %>
@@ -92,7 +90,8 @@
       <% path = image_url('star-off.png') %>
       starOff: '<%= path.slice((path.index('assets/')+7)..(path.size)) %>',
       scoreName: 'review[money_worthy]',
-      score: <%= @review.money_worthy %>
+      score: <%= review.money_worthy %>
     });
   </script>
+
 </div>
