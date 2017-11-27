@@ -15,10 +15,10 @@
         </h1>
         <div class="row d-flex align-items-center" style="margin-left: 5px">
           <div style="color: green; font-size: 40px">$100</div>
-          <a href="#" class="d-flex align-items-center" style="height: 40px; border: 1px solid black; padding: 5px 10px 5px 10px; border-radius: 50px; margin-left: 15px; font-size: 15px;
-          color: black; text-decoration: none;"><%= @shoe.category.name %></a>
-          <a href="#" class="d-flex align-items-center" style="height: 40px; border: 1px solid black; padding: 5px 10px 5px 10px; border-radius: 50px; margin-left: 15px; font-size: 15px;
-          color: black; text-decoration: none;"><%= @shoe.brand.name %></a href="#">
+          <%= link_to @shoe.category.name, category_path(@shoe.category), class: "d-flex align-items-center", style: "height: 40px; border: 1px solid black; padding: 5px 10px 5px 10px; border-radius: 50px; margin-left: 15px; font-size: 15px;
+          color: black; text-decoration: none;" %>
+          <%= link_to @shoe.brand.name, brand_path(@shoe.brand), class: "d-flex align-items-center", style: "height: 40px; border: 1px solid black; padding: 5px 10px 5px 10px; border-radius: 50px; margin-left: 15px; font-size: 15px;
+          color: black; text-decoration: none;" %>
           <a href="#" class="d-flex align-items-center" style="height: 40px; border: 1px solid black; padding: 5px 10px 5px 10px; border-radius: 50px; margin-left: 15px; font-size: 15px;
           color: black; text-decoration: none;"><%= @shoe.water_proof ? 'Water-proof' : 'Non water-proof' %></a href="#">
         </div>
