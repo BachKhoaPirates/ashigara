@@ -22,6 +22,9 @@ Rails.application.routes.draw do
     resources :votes, only: [ :create, :destroy ]
   end
 
+  resources :brands
+  resources :categories
+
   get 'search', to: 'search#index'
 
 end
