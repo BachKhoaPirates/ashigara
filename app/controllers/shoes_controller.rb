@@ -6,7 +6,14 @@ class ShoesController < ApplicationController
   end
 
   def show
-    @reviews = @shoe.reviews
+    @reviews1 = @shoe.reviews
+    if params[:sort_column]
+      if params[:sort_column] = "created_at"
+        @reviews = @reviews1.order("#{params[:sort_column]} #{params[:sort_direction]}")
+      else
+        @reviews = @reviews1.joins(:votes).group("reviews.id").order("count(votes.id) #{params[:sort_direction]}")
+      end
+    end
     @shoe_shops = @shoe.shoe_shops.includes(:shop)
 
     if user_signed_in?
