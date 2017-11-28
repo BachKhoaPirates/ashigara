@@ -176,16 +176,16 @@
     </div>
 
 
-    <div class="card card-block" style="width: 70%; margin: 0 auto 100px;">
+    <div class="row pull-right" style="margin-top: 100px; margin-right: 50px;">
       <%= form_tag nil, method: 'get' do %>
-        <div class="form-inline">
+        <div class="form-inline pull-right">
           <%= select_tag :sort_column, options_for_select([['Vote', 'vote'], ['Time', 'created_at']]), class: 'form-control' %>
           <%= select_tag :sort_direction, options_for_select([['Ascending', 'asc'], ['Descending', 'desc']]), class: 'form-control' %>
-          <%= submit_tag "Sort", class: "btn btn-secondary" %>
+          <%= submit_tag "Sort", class: "btn btn-secondary pull-right", style: "float:right"%>
         </div>
       <% end %>
     </div>
-
+    <br><br><br>
     <div class="card" style="margin-top: 100px; border: none">
           <div class="card-body">
             <div class="card-title text-center">
